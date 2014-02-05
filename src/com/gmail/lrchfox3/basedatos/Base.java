@@ -4,14 +4,15 @@
  */
 package com.gmail.lrchfox3.basedatos;
 
-
 import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author chinchillal
  */
-public class Base  {
+public class Base {
 
     private String tabla = null;
     private String titulo = null;
@@ -36,6 +37,22 @@ public class Base  {
         this.titulo = titulo;
     }
 
+    public Campo getCampo(int indice) throws IllegalArgumentException, IllegalAccessException {
+        Campo c = null;
+        int j = 1;
+        Field[] fields = this.getClass().getDeclaredFields();
+        for (int i = 0; i < fields.length; i++) {
+            if (fields[i].getType().toString().toLowerCase().equals("class " + Campo.class.getName().toLowerCase())) {
+                if (j == indice) {
+                    c = (Campo) fields[i].get(this);
+                    break;
+                }
+                j++;
+            }
+        }
+        return c;
+    }
+
     public String getNombreCampos() throws IllegalArgumentException, IllegalAccessException {
         String nombres = "";
         Field[] fields = this.getClass().getDeclaredFields();
@@ -50,6 +67,55 @@ public class Base  {
             nombres = nombres.substring(0, nombres.length() - 1);
         }
         return nombres;
+    }
+
+    public String[] getEtiquetasCampos() throws IllegalArgumentException, IllegalAccessException {
+        List<String> etiquetas = new ArrayList<String>();
+        Field[] fields = this.getClass().getDeclaredFields();
+        for (int i = 0; i < fields.length; i++) {
+            if (fields[i].getType().toString().toLowerCase().equals("class " + Campo.class.getName().toLowerCase())) {
+                //campos = campos + fields[i].getName() + ", ";
+                Campo c = (Campo) fields[i].get(this);
+                etiquetas.add(c.getEtiqueta());
+            }
+        }
+        return etiquetas.toArray(new String[etiquetas.size()]);
+    }
+
+    public String getEtiquetaCampo(int indice) throws IllegalArgumentException, IllegalAccessException {
+        String label = "";
+        int j = 1;
+        Field[] fields = this.getClass().getDeclaredFields();
+        for (int i = 0; i < fields.length; i++) {
+            if (fields[i].getType().toString().toLowerCase().equals("class " + Campo.class.getName().toLowerCase())) {
+                if (j == indice) {
+                    Campo c = (Campo) fields[i].get(this);
+                    label = c.getEtiqueta();
+                    break;
+                }
+                j++;
+            }
+        }
+        return label;
+    }
+
+    public String[] getEtiquetasCampos(int... indices) throws IllegalArgumentException, IllegalAccessException {
+        List<String> etiquetas = new ArrayList<String>();
+        signosParametros = "";
+        int j = 1;
+        Field[] fields = this.getClass().getDeclaredFields();
+        for (int i = 0; i < fields.length; i++) {
+            if (fields[i].getType().toString().toLowerCase().equals("class " + Campo.class.getName().toLowerCase())) {
+                if (contieneIndice(indices, j)) {
+                    Campo c = (Campo) fields[i].get(this);
+                    etiquetas.add(c.getEtiqueta());
+                    signosParametros = signosParametros + "?,";
+                }
+                j++;
+            }
+        }
+
+        return etiquetas.toArray(new String[etiquetas.size()]);
     }
 
     public String getNombreCampo(int indice) throws IllegalArgumentException, IllegalAccessException {
@@ -90,8 +156,8 @@ public class Base  {
         }
         return nombres;
     }
-    
-    public String getSignosParametros(){        
+
+    public String getSignosParametros() {
         return signosParametros;
     }
 

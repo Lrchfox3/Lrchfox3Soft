@@ -30,6 +30,15 @@ public class JEtiquetaObligatorios extends javax.swing.JLabel {
         setFont(propiedades.getFontEtiquetas());        
         setForeground(propiedades.getColorEtiquetaObligatorios());
         setIcon(new javax.swing.ImageIcon(getClass().getResource(propiedades.getImgObligatorio())));
+       
+    }
+    
+    public void off(){
+        this.setVisible(false);
+    }
+    
+    public void on(){
+        this.setVisible(true);
     }
 
 }

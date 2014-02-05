@@ -9,6 +9,7 @@
  */
 package com.gmail.lrchfox3.controles.textos;
 
+import com.gmail.lrchfox3.basedatos.Base;
 import com.gmail.lrchfox3.utilitarios.Propiedades;
 import java.awt.Cursor;
 import java.awt.Desktop;
@@ -16,6 +17,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -24,6 +27,8 @@ import java.net.URISyntaxException;
 public class JEtiquetaBase extends javax.swing.JLabel  { //implements MouseListener
 
     private Propiedades propiedades = new Propiedades();
+    private Base bean = new Base();
+    private int index = -1;
 //    private URI url = null;
 
     /**
@@ -40,6 +45,30 @@ public class JEtiquetaBase extends javax.swing.JLabel  { //implements MouseListe
         //setSize(getPreferredSize());
     }
 
+    public void setBindingBean( Base bean ){
+        this.bean = bean;
+        
+    }
+    
+    public void setIndexBindingBean( int index ){
+        this.index = index;        
+    }
+    
+    public String getText(){
+        String text = super.getText();
+        if (this.bean!=null){        
+            try {
+                if (this.index>-1){
+                text = this.bean.getEtiquetaCampo(this.index);
+                }
+            } catch (IllegalArgumentException ex) {
+                Logger.getLogger(JEtiquetaBase.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IllegalAccessException ex) {
+                Logger.getLogger(JEtiquetaBase.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return text;
+    }
     /**
      * Metodo para asignar una direccion web
      *

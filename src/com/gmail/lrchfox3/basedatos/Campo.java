@@ -18,7 +18,7 @@ public class Campo {
     private boolean llave = false;
     private boolean visible = true;
     private boolean nulo = true;
-    private int length = 0;
+    private int length = -1;
     private int tipo = SqlTipos.NONE;
 
     public Campo() {
@@ -74,6 +74,9 @@ public class Campo {
             this.nulo = _nulo;
         }
     }
+    
+    
+
     
     public Campo(String _nombre, String _etiqueta, int _tipo, boolean _esllave, boolean _visible) {
         this.nombre = _nombre;

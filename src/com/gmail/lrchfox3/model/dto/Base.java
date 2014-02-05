@@ -12,6 +12,7 @@ import java.lang.reflect.Field;
  *
  * @author chinchillal
  */
+@Deprecated
 public class Base  {
 
     private String tabla = null;
