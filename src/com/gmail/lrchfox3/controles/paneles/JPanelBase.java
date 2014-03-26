@@ -17,7 +17,7 @@ public class JPanelBase extends javax.swing.JPanel {
         inicializar();
     }
 
-    public void inicializar() {
+    private void inicializar() {
                 try {
             util.lookAndFeelSystem();
         } catch (Exception e) {
