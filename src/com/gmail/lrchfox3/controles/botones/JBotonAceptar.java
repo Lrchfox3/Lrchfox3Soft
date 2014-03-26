@@ -21,8 +21,8 @@ public class JBotonAceptar extends javax.swing.JButton implements Serializable {
     }
 
     private void inicializar() {
-        setText(Propiedades.config.getString("BTN_ACEPTAR"));
-        setToolTipText(Propiedades.config.getString("BTN_ACEPTAR"));
+        setText(Propiedades.appBundle.getString("BTN_ACEPTAR"));
+        setToolTipText(Propiedades.appBundle.getString("BTN_ACEPTAR"));
         setFont(propiedades.getFontBotones());        
         setIcon(new javax.swing.ImageIcon(propiedades.getImgAceptar()));
         setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -30,6 +30,6 @@ public class JBotonAceptar extends javax.swing.JButton implements Serializable {
         setAlignmentY(0);
         setPreferredSize(new java.awt.Dimension(100, 26));
         setSize(106, 26);
-        setMnemonic('A');
+        setMnemonic('A');        
     }
 }

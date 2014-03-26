@@ -4,6 +4,7 @@
  */
 package com.gmail.lrchfox3.controles.textos;
 
+import com.gmail.lrchfox3.utilitarios.Propiedades;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
@@ -24,10 +25,19 @@ public class RoundedCornerBorder extends AbstractBorder {
 
     private boolean foco = false;
     private boolean roundedCorner = false;
+    private boolean mandatory = false;
+
+    private Propiedades propiedades = new Propiedades();
 
     public RoundedCornerBorder(boolean _foco, boolean _roundedCorner) {
         foco = _foco;
         roundedCorner = _roundedCorner;
+    }
+
+    public RoundedCornerBorder(boolean _foco, boolean _roundedCorner, boolean _mandatory) {
+        foco = _foco;
+        roundedCorner = _roundedCorner;
+        mandatory = _mandatory;
     }
 
     @Override
@@ -46,10 +56,15 @@ public class RoundedCornerBorder extends AbstractBorder {
             corner.subtract(new Area(round));
             g2.fill(corner);
         }
-        if (foco) {
-            g2.setColor(Color.ORANGE);
+
+        if (mandatory) {
+            g2.setColor(propiedades.getColorEtiquetaObligatorios());
         } else {
-            g2.setColor(Color.GRAY);
+            if (foco) {
+                g2.setColor(Color.ORANGE);
+            } else {
+                g2.setColor(Color.GRAY);
+            }
         }
         g2.draw(round);
         g2.dispose();

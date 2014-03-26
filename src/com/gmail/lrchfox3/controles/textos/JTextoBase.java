@@ -7,11 +7,13 @@
  * the Source Creation and Management node. Right-click the template and choose
  * Open. You can then make changes to the template in the Source Editor.
  */
-
 package com.gmail.lrchfox3.controles.textos;
 
+import com.gmail.lrchfox3.basedatos.Base;
 import com.gmail.lrchfox3.utilitarios.Propiedades;
 import java.awt.event.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -20,12 +22,15 @@ import java.awt.event.*;
 public class JTextoBase extends javax.swing.JTextField {
 
     private Propiedades propiedades = new Propiedades();
+    private Base bean = new Base();
+    private int index = -1;
 
     /**
      * Creates a new instance of jTextoBase
      */
     public JTextoBase() {
         inicializar();
+
     }
 
     private void inicializar() {
@@ -41,6 +46,7 @@ public class JTextoBase extends javax.swing.JTextField {
             public void keyTyped(KeyEvent evt) {
                 validar(evt);
             }
+
         });
 
         addFocusListener(new FocusAdapter() {
@@ -57,9 +63,20 @@ public class JTextoBase extends javax.swing.JTextField {
 
             public void focusGained(java.awt.event.FocusEvent evt) {
                 RoundedCornerBorder r = new RoundedCornerBorder(true, roundedCornerBorder);
-                setBorder(r);
+                setBorder(r);    
+                setMaxCaracteres();
             }
         });
+
+    }
+
+    public void setBindingBean(Base bean) {
+        this.bean = bean;
+
+    }
+
+    public void setIndexBindingBean(int index) {
+        this.index = index;        
     }
 
     @Override
@@ -84,8 +101,62 @@ public class JTextoBase extends javax.swing.JTextField {
         }
     }
 
+    public boolean isMandatory() {
+        boolean retvalue = false;
+        try {
+            if (this.bean != null && index > -1) {
+                if (this.bean.getCampo(index).isNulo()) {
+                    if (getText().length() <= 0) {
+                        RoundedCornerBorder r = new RoundedCornerBorder(false, roundedCornerBorder, true);
+                        setBorder(r);
+                        retvalue = true;
+                    }
+                } else {
+                    retvalue = false;
+                    RoundedCornerBorder r = new RoundedCornerBorder(false, roundedCornerBorder);
+                    setBorder(r);
+                }
+            }
+        } catch (IllegalArgumentException ex) {
+            Logger.getLogger(JTextoBase.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(JTextoBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return retvalue;
+    }
+
     public void setMaxCaracteres(int numeroMaximoCaracteres) {
         this.numeroMaximoCaracteres = numeroMaximoCaracteres;
+        
+        
+        try {
+            if (this.bean != null && index > -1) {
+                if (this.bean.getCampo(index).getLength() > 0) {
+                    numeroMaximoCaracteres = this.bean.getCampo(index).getLength();
+                }
+            }
+        } catch (IllegalArgumentException ex) {
+            Logger.getLogger(JTextoBase.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(JTextoBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+        public void setMaxCaracteres() {        
+        
+        
+        try {
+            if (this.bean != null && index > -1) {
+                if (this.bean.getCampo(index).getLength() > 0) {
+                    numeroMaximoCaracteres = this.bean.getCampo(index).getLength();
+                }
+            }
+        } catch (IllegalArgumentException ex) {
+            Logger.getLogger(JTextoBase.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(JTextoBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public int getMaxCaracteres() {
@@ -94,7 +165,7 @@ public class JTextoBase extends javax.swing.JTextField {
 
     public void errorMaxCaracteres(String texto) {
         setText("");
-        javax.swing.JOptionPane.showMessageDialog(this, "MÃ¡ximo Caracteres: " + getMaxCaracteres() + "\n" + "texto: " + texto + " \n(" + texto.length() + " caracteres)", "Elemento no encontrado", javax.swing.JOptionPane.ERROR_MESSAGE);
+        javax.swing.JOptionPane.showMessageDialog(this, "Máximo Caracteres: " + getMaxCaracteres() + "\n" + "texto: " + texto + " \n(" + texto.length() + " caracteres)", "Elemento no encontrado", javax.swing.JOptionPane.ERROR_MESSAGE);
     }
 
     @Override
