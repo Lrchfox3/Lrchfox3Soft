@@ -15,11 +15,12 @@ import javax.swing.JButton;
  *
  * @author Luis R. Chinchilla H.
  */
-public class JBotonCancelar extends JButton implements Serializable {
+public class JBotonCancelar extends JBotonBase implements Serializable {
         /**
      * serial uid
      */
     private static final long serialVersionUID = 3978706198935583032L;
+     private boolean flatButton = false;
 
     /** Creates new form BeanForm */
     public JBotonCancelar() {
@@ -44,8 +45,7 @@ public class JBotonCancelar extends JButton implements Serializable {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
     }// </editor-fold>//GEN-END:initComponents
-    
-    
+     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
     private Propiedades propiedades = new com.gmail.lrchfox3.utilitarios.Propiedades();

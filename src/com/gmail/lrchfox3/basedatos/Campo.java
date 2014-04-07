@@ -102,6 +102,12 @@ public class Campo {
         this.value = _valor;
         this.tipo = _tipo;
     }
+    
+     public Campo(String _nombre, String _etiqueta, boolean _nulo, int _tipo) {
+        this.nombre = _nombre;
+        this.etiqueta = _etiqueta;
+        this.tipo = _tipo;
+    }
 
     public Campo(String _nombre, Object _valor, String _etiqueta, int _tipo, int _length, boolean _nulo) {
         this.nombre = _nombre;

@@ -12,9 +12,10 @@ import java.io.Serializable;
  *
  * @author Administrador
  */
-public class JBotonAceptar extends javax.swing.JButton implements Serializable {
+public class JBotonAceptar extends JBotonBase implements Serializable {
 
     private Propiedades propiedades = new Propiedades();
+     private boolean flatButton = false;
 
     public JBotonAceptar() {
         inicializar();
@@ -32,4 +33,5 @@ public class JBotonAceptar extends javax.swing.JButton implements Serializable {
         setSize(106, 26);
         setMnemonic('A');        
     }
+    
 }
