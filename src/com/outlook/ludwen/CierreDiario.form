@@ -1,0 +1,942 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.8" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Container class="javax.swing.JPopupMenu" name="popCaja">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+        <Property name="useNullLayout" type="boolean" value="true"/>
+      </Layout>
+      <SubComponents>
+        <MenuItem class="javax.swing.JMenuItem" name="mnuLimpiar">
+          <Properties>
+            <Property name="label" type="java.lang.String" value="Limpiar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuLimpiarActionPerformed"/>
+          </Events>
+        </MenuItem>
+      </SubComponents>
+    </Container>
+  </NonVisualComponents>
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="title" type="java.lang.String" value="Cierre Diario"/>
+    <Property name="extendedState" type="int" value="2"/>
+    <Property name="resizable" type="boolean" value="false"/>
+    <Property name="state" type="int" value="1"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,77,0,0,1,-20"/>
+    <SyntheticProperty name="formSizePolicy" type="int" value="0"/>
+    <SyntheticProperty name="generateSize" type="boolean" value="true"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
+  </SyntheticProperties>
+  <Events>
+    <EventHandler event="windowOpened" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowOpened"/>
+  </Events>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Component id="jPanelConTitulo2" alignment="0" pref="470" max="32767" attributes="0"/>
+                  <Component id="jPanelConTitulo1" pref="470" max="32767" attributes="0"/>
+                  <Component id="pnlCaja" min="-2" pref="470" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="0" pref="6" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="pnlCaja" min="-2" pref="247" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jPanelConTitulo1" min="-2" pref="85" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jPanelConTitulo2" min="-2" pref="206" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="com.gmail.lrchfox3.controles.paneles.JPanelConTitulo" name="pnlCaja">
+      <Properties>
+        <Property name="componentPopupMenu" type="javax.swing.JPopupMenu" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="popCaja"/>
+        </Property>
+        <Property name="titulo" type="java.lang.String" value="Caja"/>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="270" pref="270" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="txtCantidad20" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="lblMonto20" min="-2" pref="90" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="txtCantidad5" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="lblMonto5" min="-2" pref="90" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                          <Component id="lblCantidadBilletes" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="lbl500" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbl50" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbl10" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbl2" alignment="1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="txtCantidad500" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtCantidad50" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
+                              <Component id="txtCantidad10" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtCantidad2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lblMonedas" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="txtMontoMonedas" min="-2" pref="67" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="lblMonto500" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
+                      <Component id="lblMonto50" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
+                      <Component id="lblMonto10" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
+                      <Component id="lblMonto2" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="lbl100" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbl20" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbl5" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbl1" alignment="1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="txtCantidad1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lblMonto1" min="-2" pref="90" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="lblTotalCaja" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lblMontoTotalCaja" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="lblApertura" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lblMontoApertura" min="-2" pref="124" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                                  <Component id="txtCantidad100" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="lblMonto100" min="-2" pref="90" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+                                  <Component id="lblFecha" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="dtFechaCierre" max="32767" attributes="0"/>
+                                      <Component id="lblFechaCierre" min="-2" pref="114" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="btnEditarFechaCierre" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="lblApertura1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="lblMontoApertura2" min="-2" pref="210" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblMontoApertura" alignment="3" max="32767" attributes="0"/>
+                          <Component id="lblApertura" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="btnEditarFechaCierre" pref="33" max="32767" attributes="0"/>
+                      <Component id="dtFechaCierre" alignment="0" max="32767" attributes="0"/>
+                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                          <Component id="lblFechaCierre" alignment="3" max="32767" attributes="0"/>
+                          <Component id="lblFecha" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="lblCantidadBilletes" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lbl500" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtCantidad500" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblMonto500" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbl100" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txtCantidad50" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblMonto50" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtCantidad20" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbl20" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbl50" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblMonto20" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lbl10" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtCantidad10" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblMonto10" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbl5" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtCantidad5" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblMonto5" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="txtCantidad2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblMonto2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbl1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtCantidad1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblMonto1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="lbl2" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                          <Component id="txtCantidad100" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblMonto100" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblTotalCaja" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblMontoTotalCaja" alignment="3" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblMonedas" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtMontoMonedas" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="5" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="lblApertura1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="lblMontoApertura2" alignment="1" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaBase" name="lblCantidadBilletes">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cantidad de Billetes:"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="0"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaBase" name="lbl500">
+          <Properties>
+            <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="txtCantidad500"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="500 x"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="0"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaBase" name="lbl100">
+          <Properties>
+            <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="txtCantidad100"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="100 x"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="0"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaBase" name="lbl50">
+          <Properties>
+            <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="txtCantidad50"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="50 x"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="0"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaBase" name="lbl20">
+          <Properties>
+            <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="txtCantidad20"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="20 x"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="0"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaBase" name="lbl10">
+          <Properties>
+            <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="txtCantidad10"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="10 x"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="0"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaBase" name="lbl5">
+          <Properties>
+            <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="txtCantidad5"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="5 x"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="0"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaBase" name="lbl2">
+          <Properties>
+            <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="txtCantidad2"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="2 x"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="0"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaBase" name="lbl1">
+          <Properties>
+            <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="txtCantidad1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="1 x"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="0"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaTitulo" name="lblMontoApertura">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Lps"/>
+          </Properties>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.textos.JTextoFormato" name="txtCantidad500">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="comas" type="boolean" value="false"/>
+            <Property name="expresionRegular" type="java.lang.String" value="\u005cd*" containsInvalidXMLChars="true"/>
+            <Property name="maxCaracteres" type="int" value="3"/>
+            <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="txtCantidad100"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtCantidad500FocusLost"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCantidad500KeyReleased"/>
+          </Events>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.textos.JTextoFormato" name="txtCantidad100">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="txtCantidad50"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtCantidad100FocusLost"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCantidad100KeyReleased"/>
+          </Events>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.textos.JTextoFormato" name="txtCantidad50">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="txtCantidad20"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtCantidad50FocusLost"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCantidad50KeyReleased"/>
+          </Events>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.textos.JTextoFormato" name="txtCantidad20">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="txtCantidad10"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtCantidad20FocusLost"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCantidad20KeyReleased"/>
+          </Events>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.textos.JTextoFormato" name="txtCantidad10">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="txtCantidad5"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtCantidad10FocusLost"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCantidad10KeyReleased"/>
+          </Events>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.textos.JTextoFormato" name="txtCantidad5">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="txtCantidad2"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtCantidad5FocusLost"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCantidad5KeyReleased"/>
+          </Events>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.textos.JTextoFormato" name="txtCantidad2">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="txtCantidad1"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtCantidad2FocusLost"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCantidad2KeyReleased"/>
+          </Events>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.textos.JTextoFormato" name="txtCantidad1">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="txtMontoMonedas"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtCantidad1FocusLost"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCantidad1KeyReleased"/>
+          </Events>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.textos.JTextoFormato" name="txtMontoMonedas">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="expresionRegular" type="java.lang.String" value="[0-9]+(\u005c.[0-9][0-9]?)?" containsInvalidXMLChars="true"/>
+            <Property name="maxCaracteres" type="int" value="8"/>
+          </Properties>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaTitulo" name="lblMontoTotalCaja">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Lps"/>
+          </Properties>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaBase" name="lblMonto50">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="="/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="0"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaBase" name="lblMonto500">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="= "/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="0"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaBase" name="lblMonto5">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="="/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="0"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaBase" name="lblMonto100">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="="/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="0"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaBase" name="lblMonto10">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="="/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="0"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaBase" name="lblMonto2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="="/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="0"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaBase" name="lblMonto20">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="="/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="0"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaBase" name="lblMonto1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="="/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="0"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaBase" name="lblApertura">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Apertura"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaBase" name="lblTotalCaja">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Total"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaBase" name="lblMonedas">
+          <Properties>
+            <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="txtMontoMonedas"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Monedas"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="0"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.botones.paint.JBotonLapiz" name="btnEditarFechaCierre">
+          <Properties>
+            <Property name="toolTipText" type="java.lang.String" value="L&#xe1;piz"/>
+            <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="txtCantidad500"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditarFechaCierreActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaTitulo" name="lblFechaCierre">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="25/02/2015"/>
+          </Properties>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaBase" name="lblFecha">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="lblFechaCierre"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Fecha"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
+            <Property name="horizontalTextPosition" type="int" value="0"/>
+          </Properties>
+        </Component>
+        <Component class="com.gmail.lrchfox3.utilitarios.calendario.JDateChooser" name="dtFechaCierre">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="0"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaBase" name="lblApertura1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Total Caja - Caja Apertura"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaTitulo" name="lblMontoApertura2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Lps"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="com.gmail.lrchfox3.controles.paneles.JPanelConTitulo" name="jPanelConTitulo1">
+      <Properties>
+        <Property name="titulo" type="java.lang.String" value="Facturado"/>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Component id="jTextoScrollBase1" alignment="0" max="32767" attributes="0"/>
+              <Component id="jEtiquetaTitulo1" alignment="1" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <Component id="jTextoScrollBase1" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jEtiquetaTitulo1" min="-2" pref="25" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaTitulo" name="jEtiquetaTitulo1">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Lps"/>
+          </Properties>
+        </Component>
+        <Container class="com.gmail.lrchfox3.controles.textos.JTextoScrollBase" name="jTextoScrollBase1">
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="com.gmail.lrchfox3.controles.textos.JTextoFormato" name="txtCantidad501">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="comas" type="boolean" value="false"/>
+                <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                  <ComponentRef name="txtCantidad100"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtCantidad501FocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCantidad501KeyReleased"/>
+              </Events>
+            </Component>
+          </SubComponents>
+        </Container>
+      </SubComponents>
+    </Container>
+    <Container class="com.gmail.lrchfox3.controles.paneles.JPanelConTitulo" name="jPanelConTitulo2">
+      <Properties>
+        <Property name="titulo" type="java.lang.String" value="Cierre"/>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lbl505" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbl503" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbl501" alignment="1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="txtCantidad504" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtCantidad502" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lbl504" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lbl502" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jTextoBase1" max="32767" attributes="0"/>
+                                      <Component id="txtCantidad503" pref="150" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Component id="jScrollPane1" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                          <Component id="lblApertura2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jEtiquetaTitulo2" min="-2" pref="195" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="jBotonAceptar1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="txtCantidad505" min="-2" pref="83" max="-2" attributes="0"/>
+                          <EmptySpace min="357" pref="357" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lbl501" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtCantidad502" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbl502" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtCantidad503" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jTextoBase1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbl504" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbl505" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtCantidad504" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="lbl503" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="txtCantidad505" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="jScrollPane1" min="-2" pref="62" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jBotonAceptar1" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="jEtiquetaTitulo2" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="lblApertura2" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaBase" name="lbl501">
+          <Properties>
+            <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="txtCantidad500"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Continental"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="0"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.textos.JTextoFormato" name="txtCantidad502">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="comas" type="boolean" value="false"/>
+            <Property name="expresionRegular" type="java.lang.String" value="\u005cd*" containsInvalidXMLChars="true"/>
+            <Property name="maxCaracteres" type="int" value="3"/>
+            <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="txtCantidad100"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtCantidad502FocusLost"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCantidad502KeyReleased"/>
+          </Events>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaBase" name="lbl503">
+          <Properties>
+            <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="txtCantidad500"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Justificaci&#xf3;n"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="0"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.textos.JTextoFormato" name="txtCantidad503">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="comas" type="boolean" value="false"/>
+            <Property name="expresionRegular" type="java.lang.String" value="\u005cd*" containsInvalidXMLChars="true"/>
+            <Property name="maxCaracteres" type="int" value="3"/>
+            <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="txtCantidad100"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtCantidad503FocusLost"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCantidad503KeyReleased"/>
+          </Events>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaBase" name="lbl502">
+          <Properties>
+            <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="txtCantidad500"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Atlantida"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="0"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.botones.JBotonAceptar" name="jBotonAceptar1">
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.textos.JTextoBase" name="jTextoBase1">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaBase" name="lbl504">
+          <Properties>
+            <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="txtCantidad500"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Diferencia"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="0"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTextPane" name="jTextPane1">
+            </Component>
+          </SubComponents>
+        </Container>
+        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaBase" name="lbl505">
+          <Properties>
+            <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="txtCantidad500"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Deposito Banco"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="0"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.textos.JTextoFormato" name="txtCantidad504">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="comas" type="boolean" value="false"/>
+            <Property name="expresionRegular" type="java.lang.String" value="\u005cd*" containsInvalidXMLChars="true"/>
+            <Property name="maxCaracteres" type="int" value="3"/>
+            <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="txtCantidad100"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtCantidad504FocusLost"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCantidad504KeyReleased"/>
+          </Events>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaBase" name="lblApertura2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Caja"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaTitulo" name="jEtiquetaTitulo2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Lps"/>
+          </Properties>
+        </Component>
+        <Component class="com.gmail.lrchfox3.controles.textos.JTextoFormato" name="txtCantidad505">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="comas" type="boolean" value="false"/>
+            <Property name="expresionRegular" type="java.lang.String" value="\u005cd*" containsInvalidXMLChars="true"/>
+            <Property name="maxCaracteres" type="int" value="3"/>
+            <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="txtCantidad100"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtCantidad505FocusLost"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCantidad505KeyReleased"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>
