@@ -166,17 +166,17 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Component id="lblApertura" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblMontoApertura" min="-2" pref="124" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="210" max="-2" attributes="0"/>
                                   <Component id="txtCantidad100" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="lblMonto100" min="-2" pref="90" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="lblMontoApertura" min="-2" pref="124" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
                                   <Component id="lblFecha" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -193,7 +193,7 @@
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="lblApertura1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="lblMontoApertura2" min="-2" pref="210" max="-2" attributes="0"/>
+                          <Component id="lblCajaApertura" min="-2" pref="210" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -204,13 +204,15 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblApertura" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblMontoApertura" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnEditarFechaCierre" pref="33" max="32767" attributes="0"/>
+                      <Component id="btnEditarFechaCierre" pref="31" max="32767" attributes="0"/>
                       <Component id="dtFechaCierre" alignment="0" max="32767" attributes="0"/>
                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                          <Component id="lblFechaCierre" alignment="3" max="32767" attributes="0"/>
+                          <Component id="lblFechaCierre" alignment="3" pref="25" max="32767" attributes="0"/>
                           <Component id="lblFecha" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                          <Component id="lblMontoApertura" alignment="3" max="32767" attributes="0"/>
+                          <Component id="lblApertura" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -261,19 +263,18 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblTotalCaja" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblMontoTotalCaja" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblMonedas" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtMontoMonedas" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                  </Group>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="lblApertura1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="lblMontoTotalCaja" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblTotalCaja" alignment="0" pref="25" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="lblMontoApertura2" alignment="1" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblCajaApertura" alignment="3" pref="31" max="32767" attributes="0"/>
+                      <Component id="lblApertura1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -483,8 +484,11 @@
         <Component class="com.gmail.lrchfox3.controles.textos.JTextoFormato" name="txtMontoMonedas">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="expresionRegular" type="java.lang.String" value="[0-9]+(\u005c.[0-9][0-9]?)?" containsInvalidXMLChars="true"/>
-            <Property name="maxCaracteres" type="int" value="8"/>
+            <Property name="expresionRegular" type="java.lang.String" value="^(+|-)?[0-9]+(\u005c.([0-9]{1,2})?)?$" containsInvalidXMLChars="true"/>
+            <Property name="maxCaracteres" type="int" value="12"/>
+            <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="txtFacturado"/>
+            </Property>
           </Properties>
         </Component>
         <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaTitulo" name="lblMontoTotalCaja">
@@ -627,7 +631,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaTitulo" name="lblMontoApertura2">
+        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaTitulo" name="lblCajaApertura">
           <Properties>
             <Property name="text" type="java.lang.String" value="Lps"/>
           </Properties>
@@ -673,7 +677,7 @@
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="comas" type="boolean" value="false"/>
                 <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                  <ComponentRef name="txtCantidad100"/>
+                  <ComponentRef name="txtPOS1"/>
                 </Property>
               </Properties>
               <Events>
@@ -695,46 +699,55 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lbl505" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="lbl503" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="lbl501" alignment="1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtCantidad504" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtCantidad502" alignment="0" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="lbl505" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="txtDeposito" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="lblDiferencia" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="txtDiferencia" max="32767" attributes="0"/>
+                                          <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="lblPOS1" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="txtPOS1" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblPOS2" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblJustificacion" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lbl504" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lbl502" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jTextoBase1" max="32767" attributes="0"/>
-                                      <Component id="txtCantidad503" pref="150" max="32767" attributes="0"/>
+                                      <Component id="txtMontoJustificacion" pref="136" max="32767" attributes="0"/>
+                                      <Component id="txtPOS2" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Component id="jScrollPane1" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="lblCaja" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="btnAceptar" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                                          <Component id="lblCajaFinal" min="-2" pref="195" max="-2" attributes="0"/>
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
                           </Group>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                          <Component id="lblApertura2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jEtiquetaTitulo2" min="-2" pref="195" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="jBotonAceptar1" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="txtCantidad505" min="-2" pref="83" max="-2" attributes="0"/>
-                          <EmptySpace min="357" pref="357" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -746,42 +759,47 @@
               <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lbl501" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtCantidad502" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lbl502" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtCantidad503" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextoBase1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lbl504" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lbl505" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtCantidad504" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblPOS1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtPOS1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblPOS2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtPOS2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="lbl503" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txtCantidad505" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblJustificacion" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtMontoJustificacion" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblDiferencia" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jScrollPane1" min="-2" pref="62" max="-2" attributes="0"/>
+                      <Component id="txtDiferencia" alignment="0" min="-2" pref="23" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="53" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lbl505" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtDeposito" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jBotonAceptar1" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="jEtiquetaTitulo2" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="lblApertura2" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                          <Component id="btnAceptar" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblCajaFinal" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="lblCaja" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaBase" name="lbl501">
+        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaBase" name="lblPOS1">
           <Properties>
             <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
               <ComponentRef name="txtCantidad500"/>
@@ -792,22 +810,22 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="com.gmail.lrchfox3.controles.textos.JTextoFormato" name="txtCantidad502">
+        <Component class="com.gmail.lrchfox3.controles.textos.JTextoFormato" name="txtPOS1">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="comas" type="boolean" value="false"/>
-            <Property name="expresionRegular" type="java.lang.String" value="\u005cd*" containsInvalidXMLChars="true"/>
-            <Property name="maxCaracteres" type="int" value="3"/>
+            <Property name="expresionRegular" type="java.lang.String" value="[0-9]+(\u005c.[0-9][0-9]?)?" containsInvalidXMLChars="true"/>
+            <Property name="maxCaracteres" type="int" value="12"/>
             <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-              <ComponentRef name="txtCantidad100"/>
+              <ComponentRef name="txtPOS2"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtCantidad502FocusLost"/>
-            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCantidad502KeyReleased"/>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtPOS1FocusLost"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtPOS1KeyReleased"/>
           </Events>
         </Component>
-        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaBase" name="lbl503">
+        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaBase" name="lblJustificacion">
           <Properties>
             <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
               <ComponentRef name="txtCantidad500"/>
@@ -818,22 +836,22 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="com.gmail.lrchfox3.controles.textos.JTextoFormato" name="txtCantidad503">
+        <Component class="com.gmail.lrchfox3.controles.textos.JTextoFormato" name="txtPOS2">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="comas" type="boolean" value="false"/>
-            <Property name="expresionRegular" type="java.lang.String" value="\u005cd*" containsInvalidXMLChars="true"/>
-            <Property name="maxCaracteres" type="int" value="3"/>
+            <Property name="expresionRegular" type="java.lang.String" value="[0-9]+(\u005c.[0-9][0-9]?)?" containsInvalidXMLChars="true"/>
+            <Property name="maxCaracteres" type="int" value="12"/>
             <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-              <ComponentRef name="txtCantidad100"/>
+              <ComponentRef name="txtMontoJustificacion"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtCantidad503FocusLost"/>
-            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCantidad503KeyReleased"/>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtPOS2FocusLost"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtPOS2KeyReleased"/>
           </Events>
         </Component>
-        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaBase" name="lbl502">
+        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaBase" name="lblPOS2">
           <Properties>
             <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
               <ComponentRef name="txtCantidad500"/>
@@ -844,14 +862,19 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="com.gmail.lrchfox3.controles.botones.JBotonAceptar" name="jBotonAceptar1">
+        <Component class="com.gmail.lrchfox3.controles.botones.JBotonAceptar" name="btnAceptar">
+          <Properties>
+            <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="txtCantidad500"/>
+            </Property>
+          </Properties>
         </Component>
-        <Component class="com.gmail.lrchfox3.controles.textos.JTextoBase" name="jTextoBase1">
+        <Component class="com.gmail.lrchfox3.controles.textos.JTextoBase" name="txtDiferencia">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
           </Properties>
         </Component>
-        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaBase" name="lbl504">
+        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaBase" name="lblDiferencia">
           <Properties>
             <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
               <ComponentRef name="txtCantidad500"/>
@@ -869,7 +892,12 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTextPane" name="jTextPane1">
+            <Component class="javax.swing.JTextPane" name="txtJustificacion">
+              <Properties>
+                <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                  <ComponentRef name="txtDeposito"/>
+                </Property>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
@@ -884,22 +912,22 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="com.gmail.lrchfox3.controles.textos.JTextoFormato" name="txtCantidad504">
+        <Component class="com.gmail.lrchfox3.controles.textos.JTextoFormato" name="txtDeposito">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="comas" type="boolean" value="false"/>
-            <Property name="expresionRegular" type="java.lang.String" value="\u005cd*" containsInvalidXMLChars="true"/>
-            <Property name="maxCaracteres" type="int" value="3"/>
+            <Property name="expresionRegular" type="java.lang.String" value="[0-9]+(\u005c.[0-9][0-9]?)?" containsInvalidXMLChars="true"/>
+            <Property name="maxCaracteres" type="int" value="12"/>
             <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-              <ComponentRef name="txtCantidad100"/>
+              <ComponentRef name="btnAceptar"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtCantidad504FocusLost"/>
-            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCantidad504KeyReleased"/>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtDepositoFocusLost"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtDepositoKeyReleased"/>
           </Events>
         </Component>
-        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaBase" name="lblApertura2">
+        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaBase" name="lblCaja">
           <Properties>
             <Property name="text" type="java.lang.String" value="Caja"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -907,24 +935,24 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaTitulo" name="jEtiquetaTitulo2">
+        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaTitulo" name="lblCajaFinal">
           <Properties>
             <Property name="text" type="java.lang.String" value="Lps"/>
           </Properties>
         </Component>
-        <Component class="com.gmail.lrchfox3.controles.textos.JTextoFormato" name="txtCantidad505">
+        <Component class="com.gmail.lrchfox3.controles.textos.JTextoFormato" name="txtMontoJustificacion">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="comas" type="boolean" value="false"/>
-            <Property name="expresionRegular" type="java.lang.String" value="\u005cd*" containsInvalidXMLChars="true"/>
-            <Property name="maxCaracteres" type="int" value="3"/>
+            <Property name="expresionRegular" type="java.lang.String" value="[0-9]+(\u005c.[0-9][0-9]?)?" containsInvalidXMLChars="true"/>
+            <Property name="maxCaracteres" type="int" value="8"/>
             <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-              <ComponentRef name="txtCantidad100"/>
+              <ComponentRef name="txtJustificacion"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtCantidad505FocusLost"/>
-            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCantidad505KeyReleased"/>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtMontoJustificacionFocusLost"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtMontoJustificacionKeyReleased"/>
           </Events>
         </Component>
       </SubComponents>

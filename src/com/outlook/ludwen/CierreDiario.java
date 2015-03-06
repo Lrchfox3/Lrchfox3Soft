@@ -31,6 +31,8 @@ public class CierreDiario extends javax.swing.JFrame {
         this.dtFechaCierre.setDate(getFechaActual());
 
         txtCantidad2.setNextFocusableComponent(txtCantidad1);
+        
+        this.lblMontoApertura.setText("Lps " + df2.format(cajaInicial));
     }
 
     /**
@@ -81,27 +83,27 @@ public class CierreDiario extends javax.swing.JFrame {
         lblFecha = new com.gmail.lrchfox3.controles.textos.JEtiquetaBase();
         dtFechaCierre = new com.gmail.lrchfox3.utilitarios.calendario.JDateChooser();
         lblApertura1 = new com.gmail.lrchfox3.controles.textos.JEtiquetaBase();
-        lblMontoApertura2 = new com.gmail.lrchfox3.controles.textos.JEtiquetaTitulo();
+        lblCajaApertura = new com.gmail.lrchfox3.controles.textos.JEtiquetaTitulo();
         jPanelConTitulo1 = new com.gmail.lrchfox3.controles.paneles.JPanelConTitulo();
         lblFacturado = new com.gmail.lrchfox3.controles.textos.JEtiquetaTitulo();
         jTextoScrollBase1 = new com.gmail.lrchfox3.controles.textos.JTextoScrollBase();
         txtFacturado = new com.gmail.lrchfox3.controles.textos.JTextoFormato();
         jPanelConTitulo2 = new com.gmail.lrchfox3.controles.paneles.JPanelConTitulo();
-        lbl501 = new com.gmail.lrchfox3.controles.textos.JEtiquetaBase();
-        txtCantidad502 = new com.gmail.lrchfox3.controles.textos.JTextoFormato();
-        lbl503 = new com.gmail.lrchfox3.controles.textos.JEtiquetaBase();
-        txtCantidad503 = new com.gmail.lrchfox3.controles.textos.JTextoFormato();
-        lbl502 = new com.gmail.lrchfox3.controles.textos.JEtiquetaBase();
-        jBotonAceptar1 = new com.gmail.lrchfox3.controles.botones.JBotonAceptar();
-        jTextoBase1 = new com.gmail.lrchfox3.controles.textos.JTextoBase();
-        lbl504 = new com.gmail.lrchfox3.controles.textos.JEtiquetaBase();
+        lblPOS1 = new com.gmail.lrchfox3.controles.textos.JEtiquetaBase();
+        txtPOS1 = new com.gmail.lrchfox3.controles.textos.JTextoFormato();
+        lblJustificacion = new com.gmail.lrchfox3.controles.textos.JEtiquetaBase();
+        txtPOS2 = new com.gmail.lrchfox3.controles.textos.JTextoFormato();
+        lblPOS2 = new com.gmail.lrchfox3.controles.textos.JEtiquetaBase();
+        btnAceptar = new com.gmail.lrchfox3.controles.botones.JBotonAceptar();
+        txtDiferencia = new com.gmail.lrchfox3.controles.textos.JTextoBase();
+        lblDiferencia = new com.gmail.lrchfox3.controles.textos.JEtiquetaBase();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
+        txtJustificacion = new javax.swing.JTextPane();
         lbl505 = new com.gmail.lrchfox3.controles.textos.JEtiquetaBase();
-        txtCantidad504 = new com.gmail.lrchfox3.controles.textos.JTextoFormato();
-        lblApertura2 = new com.gmail.lrchfox3.controles.textos.JEtiquetaBase();
-        jEtiquetaTitulo2 = new com.gmail.lrchfox3.controles.textos.JEtiquetaTitulo();
-        txtCantidad505 = new com.gmail.lrchfox3.controles.textos.JTextoFormato();
+        txtDeposito = new com.gmail.lrchfox3.controles.textos.JTextoFormato();
+        lblCaja = new com.gmail.lrchfox3.controles.textos.JEtiquetaBase();
+        lblCajaFinal = new com.gmail.lrchfox3.controles.textos.JEtiquetaTitulo();
+        txtMontoJustificacion = new com.gmail.lrchfox3.controles.textos.JTextoFormato();
 
         mnuLimpiar.setLabel("Limpiar");
         mnuLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -269,8 +271,9 @@ public class CierreDiario extends javax.swing.JFrame {
         });
 
         txtMontoMonedas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtMontoMonedas.setExpresionRegular("[0-9]+(\\.[0-9][0-9]?)?");
-        txtMontoMonedas.setMaxCaracteres(8);
+        txtMontoMonedas.setExpresionRegular("^(+|-)?[0-9]+(\\.([0-9]{1,2})?)?$");
+        txtMontoMonedas.setMaxCaracteres(12);
+        txtMontoMonedas.setNextFocusableComponent(txtFacturado);
 
         lblMontoTotalCaja.setText("Lps");
 
@@ -329,7 +332,7 @@ public class CierreDiario extends javax.swing.JFrame {
         lblApertura1.setText("Total Caja - Caja Apertura");
         lblApertura1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
 
-        lblMontoApertura2.setText("Lps");
+        lblCajaApertura.setText("Lps");
 
         javax.swing.GroupLayout pnlCajaLayout = new javax.swing.GroupLayout(pnlCaja);
         pnlCaja.setLayout(pnlCajaLayout);
@@ -400,16 +403,16 @@ public class CierreDiario extends javax.swing.JFrame {
                 .addGroup(pnlCajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlCajaLayout.createSequentialGroup()
                         .addComponent(lblApertura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblMontoApertura, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(pnlCajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlCajaLayout.createSequentialGroup()
-                                .addGap(80, 80, 80)
+                                .addGap(210, 210, 210)
                                 .addComponent(txtCantidad100, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(lblMonto100, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(44, 44, 44))
                             .addGroup(pnlCajaLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblMontoApertura, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(76, 76, 76)
                                 .addComponent(lblFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -422,20 +425,21 @@ public class CierreDiario extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCajaLayout.createSequentialGroup()
                         .addComponent(lblApertura1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblMontoApertura2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblCajaApertura, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         pnlCajaLayout.setVerticalGroup(
             pnlCajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlCajaLayout.createSequentialGroup()
                 .addGroup(pnlCajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblApertura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblMontoApertura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEditarFechaCierre, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
+                    .addComponent(btnEditarFechaCierre, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
                     .addComponent(dtFechaCierre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnlCajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblFechaCierre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblFechaCierre, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                        .addComponent(lblFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlCajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblMontoApertura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblApertura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblCantidadBilletes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -476,16 +480,15 @@ public class CierreDiario extends javax.swing.JFrame {
                         .addComponent(lblMonto100, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlCajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTotalCaja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblMontoTotalCaja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlCajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblMonedas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtMontoMonedas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(pnlCajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlCajaLayout.createSequentialGroup()
-                        .addComponent(lblApertura1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addComponent(lblMontoApertura2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(txtMontoMonedas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlCajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(lblMontoTotalCaja, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblTotalCaja, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)))
+                .addGroup(pnlCajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCajaApertura, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                    .addComponent(lblApertura1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         jPanelConTitulo1.setTitulo("Facturado");
@@ -495,7 +498,7 @@ public class CierreDiario extends javax.swing.JFrame {
 
         txtFacturado.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtFacturado.setComas(false);
-        txtFacturado.setNextFocusableComponent(txtCantidad100);
+        txtFacturado.setNextFocusableComponent(txtPOS1);
         txtFacturado.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtFacturadoFocusLost(evt);
@@ -526,96 +529,99 @@ public class CierreDiario extends javax.swing.JFrame {
 
         jPanelConTitulo2.setTitulo("Cierre");
 
-        lbl501.setLabelFor(txtCantidad500);
-        lbl501.setText("Continental");
-        lbl501.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lblPOS1.setLabelFor(txtCantidad500);
+        lblPOS1.setText("Continental");
+        lblPOS1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
-        txtCantidad502.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtCantidad502.setComas(false);
-        txtCantidad502.setExpresionRegular("\\d*");
-        txtCantidad502.setMaxCaracteres(3);
-        txtCantidad502.setNextFocusableComponent(txtCantidad100);
-        txtCantidad502.addFocusListener(new java.awt.event.FocusAdapter() {
+        txtPOS1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtPOS1.setComas(false);
+        txtPOS1.setExpresionRegular("[0-9]+(\\.[0-9][0-9]?)?");
+        txtPOS1.setMaxCaracteres(12);
+        txtPOS1.setNextFocusableComponent(txtPOS2);
+        txtPOS1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                txtCantidad502FocusLost(evt);
+                txtPOS1FocusLost(evt);
             }
         });
-        txtCantidad502.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtPOS1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtCantidad502KeyReleased(evt);
+                txtPOS1KeyReleased(evt);
             }
         });
 
-        lbl503.setLabelFor(txtCantidad500);
-        lbl503.setText("Justificación");
-        lbl503.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lblJustificacion.setLabelFor(txtCantidad500);
+        lblJustificacion.setText("Justificación");
+        lblJustificacion.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
-        txtCantidad503.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtCantidad503.setComas(false);
-        txtCantidad503.setExpresionRegular("\\d*");
-        txtCantidad503.setMaxCaracteres(3);
-        txtCantidad503.setNextFocusableComponent(txtCantidad100);
-        txtCantidad503.addFocusListener(new java.awt.event.FocusAdapter() {
+        txtPOS2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtPOS2.setComas(false);
+        txtPOS2.setExpresionRegular("[0-9]+(\\.[0-9][0-9]?)?");
+        txtPOS2.setMaxCaracteres(12);
+        txtPOS2.setNextFocusableComponent(txtMontoJustificacion);
+        txtPOS2.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                txtCantidad503FocusLost(evt);
+                txtPOS2FocusLost(evt);
             }
         });
-        txtCantidad503.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtPOS2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtCantidad503KeyReleased(evt);
+                txtPOS2KeyReleased(evt);
             }
         });
 
-        lbl502.setLabelFor(txtCantidad500);
-        lbl502.setText("Atlantida");
-        lbl502.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lblPOS2.setLabelFor(txtCantidad500);
+        lblPOS2.setText("Atlantida");
+        lblPOS2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
-        jTextoBase1.setEditable(false);
+        btnAceptar.setNextFocusableComponent(txtCantidad500);
 
-        lbl504.setLabelFor(txtCantidad500);
-        lbl504.setText("Diferencia");
-        lbl504.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        txtDiferencia.setEditable(false);
 
-        jScrollPane1.setViewportView(jTextPane1);
+        lblDiferencia.setLabelFor(txtCantidad500);
+        lblDiferencia.setText("Diferencia");
+        lblDiferencia.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+
+        txtJustificacion.setNextFocusableComponent(txtDeposito);
+        jScrollPane1.setViewportView(txtJustificacion);
 
         lbl505.setLabelFor(txtCantidad500);
         lbl505.setText("Deposito Banco");
         lbl505.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
-        txtCantidad504.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtCantidad504.setComas(false);
-        txtCantidad504.setExpresionRegular("\\d*");
-        txtCantidad504.setMaxCaracteres(3);
-        txtCantidad504.setNextFocusableComponent(txtCantidad100);
-        txtCantidad504.addFocusListener(new java.awt.event.FocusAdapter() {
+        txtDeposito.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtDeposito.setComas(false);
+        txtDeposito.setExpresionRegular("[0-9]+(\\.[0-9][0-9]?)?");
+        txtDeposito.setMaxCaracteres(12);
+        txtDeposito.setNextFocusableComponent(btnAceptar);
+        txtDeposito.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                txtCantidad504FocusLost(evt);
+                txtDepositoFocusLost(evt);
             }
         });
-        txtCantidad504.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtDeposito.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtCantidad504KeyReleased(evt);
+                txtDepositoKeyReleased(evt);
             }
         });
 
-        lblApertura2.setText("Caja");
-        lblApertura2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblCaja.setText("Caja");
+        lblCaja.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
 
-        jEtiquetaTitulo2.setText("Lps");
+        lblCajaFinal.setText("Lps");
 
-        txtCantidad505.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtCantidad505.setComas(false);
-        txtCantidad505.setExpresionRegular("\\d*");
-        txtCantidad505.setMaxCaracteres(3);
-        txtCantidad505.setNextFocusableComponent(txtCantidad100);
-        txtCantidad505.addFocusListener(new java.awt.event.FocusAdapter() {
+        txtMontoJustificacion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtMontoJustificacion.setComas(false);
+        txtMontoJustificacion.setExpresionRegular("[0-9]+(\\.[0-9][0-9]?)?");
+        txtMontoJustificacion.setMaxCaracteres(8);
+        txtMontoJustificacion.setNextFocusableComponent(txtJustificacion);
+        txtMontoJustificacion.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                txtCantidad505FocusLost(evt);
+                txtMontoJustificacionFocusLost(evt);
             }
         });
-        txtCantidad505.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtMontoJustificacion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtCantidad505KeyReleased(evt);
+                txtMontoJustificacionKeyReleased(evt);
             }
         });
 
@@ -625,38 +631,43 @@ public class CierreDiario extends javax.swing.JFrame {
             jPanelConTitulo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelConTitulo2Layout.createSequentialGroup()
                 .addGroup(jPanelConTitulo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelConTitulo2Layout.createSequentialGroup()
+                    .addComponent(jScrollPane1)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelConTitulo2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanelConTitulo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbl505, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl503, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl501, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(8, 8, 8)
                         .addGroup(jPanelConTitulo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelConTitulo2Layout.createSequentialGroup()
                                 .addGroup(jPanelConTitulo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtCantidad504, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtCantidad502, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(18, 18, 18)
+                                    .addGroup(jPanelConTitulo2Layout.createSequentialGroup()
+                                        .addComponent(lbl505, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtDeposito, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(jPanelConTitulo2Layout.createSequentialGroup()
+                                        .addComponent(lblDiferencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtDiferencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(3, 3, 3))
+                                    .addGroup(jPanelConTitulo2Layout.createSequentialGroup()
+                                        .addComponent(lblPOS1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtPOS1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGap(7, 7, 7)
                                 .addGroup(jPanelConTitulo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbl504, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbl502, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(lblPOS2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblJustificacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
                                 .addGroup(jPanelConTitulo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextoBase1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtCantidad503, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)))
-                            .addComponent(jScrollPane1)))
-                    .addGroup(jPanelConTitulo2Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(lblApertura2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jEtiquetaTitulo2, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jBotonAceptar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelConTitulo2Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtCantidad505, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(357, 357, 357)))
+                                    .addComponent(txtMontoJustificacion, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+                                    .addComponent(txtPOS2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(jPanelConTitulo2Layout.createSequentialGroup()
+                                .addComponent(lblCaja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanelConTitulo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanelConTitulo2Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanelConTitulo2Layout.createSequentialGroup()
+                                        .addGap(65, 65, 65)
+                                        .addComponent(lblCajaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE)))))))
                 .addContainerGap())
         );
         jPanelConTitulo2Layout.setVerticalGroup(
@@ -664,30 +675,33 @@ public class CierreDiario extends javax.swing.JFrame {
             .addGroup(jPanelConTitulo2Layout.createSequentialGroup()
                 .addGap(6, 6, 6)
                 .addGroup(jPanelConTitulo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl501, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCantidad502, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl502, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCantidad503, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelConTitulo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextoBase1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl504, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl505, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCantidad504, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblPOS1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPOS1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPOS2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPOS2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelConTitulo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelConTitulo2Layout.createSequentialGroup()
-                        .addComponent(lbl503, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCantidad505, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addGroup(jPanelConTitulo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblJustificacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtMontoJustificacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblDiferencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDiferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelConTitulo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl505, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDeposito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanelConTitulo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jBotonAceptar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanelConTitulo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jEtiquetaTitulo2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblApertura2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanelConTitulo2Layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelConTitulo2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelConTitulo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblCajaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCaja, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -868,48 +882,50 @@ public class CierreDiario extends javax.swing.JFrame {
         this.txtCantidad500.requestFocus();
     }//GEN-LAST:event_mnuLimpiarActionPerformed
 
-    private void txtCantidad502FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCantidad502FocusLost
+    private void txtPOS1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPOS1FocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCantidad502FocusLost
+    }//GEN-LAST:event_txtPOS1FocusLost
 
-    private void txtCantidad502KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantidad502KeyReleased
+    private void txtPOS1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPOS1KeyReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCantidad502KeyReleased
+    }//GEN-LAST:event_txtPOS1KeyReleased
 
-    private void txtCantidad503FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCantidad503FocusLost
+    private void txtPOS2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPOS2FocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCantidad503FocusLost
+    }//GEN-LAST:event_txtPOS2FocusLost
 
-    private void txtCantidad503KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantidad503KeyReleased
+    private void txtPOS2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPOS2KeyReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCantidad503KeyReleased
+    }//GEN-LAST:event_txtPOS2KeyReleased
 
-    private void txtCantidad504FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCantidad504FocusLost
+    private void txtDepositoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDepositoFocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCantidad504FocusLost
+    }//GEN-LAST:event_txtDepositoFocusLost
 
-    private void txtCantidad504KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantidad504KeyReleased
+    private void txtDepositoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDepositoKeyReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCantidad504KeyReleased
+    }//GEN-LAST:event_txtDepositoKeyReleased
 
-    private void txtCantidad505FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCantidad505FocusLost
+    private void txtMontoJustificacionFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtMontoJustificacionFocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCantidad505FocusLost
+    }//GEN-LAST:event_txtMontoJustificacionFocusLost
 
-    private void txtCantidad505KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantidad505KeyReleased
+    private void txtMontoJustificacionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMontoJustificacionKeyReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCantidad505KeyReleased
+    }//GEN-LAST:event_txtMontoJustificacionKeyReleased
 
     private void txtFacturadoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFacturadoKeyReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFacturadoKeyReleased
 
     private void txtFacturadoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFacturadoFocusLost
+          int pos = 0;
         try {
             StringTokenizer tokens = new StringTokenizer(txtFacturado.getText(), "+");
-            Double fact = new Double(0.0);
+            Double fact = new Double(0.0);          
             while (tokens.hasMoreTokens()) {
                 String token = tokens.nextToken();
+                pos = pos + token.length()+1;
                 if (!token.isEmpty()) {
                     Double val = new Double(token);
                     fact = fact + val.doubleValue();
@@ -917,7 +933,8 @@ public class CierreDiario extends javax.swing.JFrame {
             }
             lblFacturado.setText("Lps " + df2.format(fact));
 
-        } catch (Exception e) {
+        } catch (Exception e) {            
+            txtFacturado.setCaretPosition(pos-1);
             txtFacturado.setForeground(Color.red);
             txtFacturado.requestFocus();            
         }
@@ -934,8 +951,12 @@ public class CierreDiario extends javax.swing.JFrame {
         double c2 = 2 * Double.parseDouble((this.txtCantidad2.getText().length() <= 0 ? "0" : this.txtCantidad2.getText()));
         double c1 = 1 * Double.parseDouble((this.txtCantidad1.getText().length() <= 0 ? "0" : this.txtCantidad1.getText()));
         this.lblMontoTotalCaja.setText("= Lps " + df2.format(c500 + c100 + c50 + c20 + c10 + c5 + c2 + c1));
+        this.lblCajaApertura.setText("Lps " + df2.format((c500 + c100 + c50 + c20 + c10 + c5 + c2 + c1) - cajaInicial) );
     }
 
+    private void diferencia(){
+        
+    }
     /**
      * @param args the command line arguments
      */
@@ -974,17 +995,16 @@ public class CierreDiario extends javax.swing.JFrame {
         });
     }
 
-    DecimalFormat df2 = new DecimalFormat("#,###,###,##0.00");
+    private DecimalFormat df2 = new DecimalFormat("#,###,###,##0.00");
+    private Double cajaApertura  = new Double(0.0);
+    private Double cajaInicial  = new Double(0.0);
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.gmail.lrchfox3.controles.botones.JBotonAceptar btnAceptar;
     private com.gmail.lrchfox3.controles.botones.paint.JBotonLapiz btnEditarFechaCierre;
     private com.gmail.lrchfox3.utilitarios.calendario.JDateChooser dtFechaCierre;
-    private com.gmail.lrchfox3.controles.botones.JBotonAceptar jBotonAceptar1;
-    private com.gmail.lrchfox3.controles.textos.JEtiquetaTitulo jEtiquetaTitulo2;
     private com.gmail.lrchfox3.controles.paneles.JPanelConTitulo jPanelConTitulo1;
     private com.gmail.lrchfox3.controles.paneles.JPanelConTitulo jPanelConTitulo2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextPane jTextPane1;
-    private com.gmail.lrchfox3.controles.textos.JTextoBase jTextoBase1;
     private com.gmail.lrchfox3.controles.textos.JTextoScrollBase jTextoScrollBase1;
     private com.gmail.lrchfox3.controles.textos.JEtiquetaBase lbl1;
     private com.gmail.lrchfox3.controles.textos.JEtiquetaBase lbl10;
@@ -994,18 +1014,18 @@ public class CierreDiario extends javax.swing.JFrame {
     private com.gmail.lrchfox3.controles.textos.JEtiquetaBase lbl5;
     private com.gmail.lrchfox3.controles.textos.JEtiquetaBase lbl50;
     private com.gmail.lrchfox3.controles.textos.JEtiquetaBase lbl500;
-    private com.gmail.lrchfox3.controles.textos.JEtiquetaBase lbl501;
-    private com.gmail.lrchfox3.controles.textos.JEtiquetaBase lbl502;
-    private com.gmail.lrchfox3.controles.textos.JEtiquetaBase lbl503;
-    private com.gmail.lrchfox3.controles.textos.JEtiquetaBase lbl504;
     private com.gmail.lrchfox3.controles.textos.JEtiquetaBase lbl505;
     private com.gmail.lrchfox3.controles.textos.JEtiquetaBase lblApertura;
     private com.gmail.lrchfox3.controles.textos.JEtiquetaBase lblApertura1;
-    private com.gmail.lrchfox3.controles.textos.JEtiquetaBase lblApertura2;
+    private com.gmail.lrchfox3.controles.textos.JEtiquetaBase lblCaja;
+    private com.gmail.lrchfox3.controles.textos.JEtiquetaTitulo lblCajaApertura;
+    private com.gmail.lrchfox3.controles.textos.JEtiquetaTitulo lblCajaFinal;
     private com.gmail.lrchfox3.controles.textos.JEtiquetaBase lblCantidadBilletes;
+    private com.gmail.lrchfox3.controles.textos.JEtiquetaBase lblDiferencia;
     private com.gmail.lrchfox3.controles.textos.JEtiquetaTitulo lblFacturado;
     private com.gmail.lrchfox3.controles.textos.JEtiquetaBase lblFecha;
     private com.gmail.lrchfox3.controles.textos.JEtiquetaTitulo lblFechaCierre;
+    private com.gmail.lrchfox3.controles.textos.JEtiquetaBase lblJustificacion;
     private com.gmail.lrchfox3.controles.textos.JEtiquetaBase lblMonedas;
     private com.gmail.lrchfox3.controles.textos.JEtiquetaBase lblMonto1;
     private com.gmail.lrchfox3.controles.textos.JEtiquetaBase lblMonto10;
@@ -1016,8 +1036,9 @@ public class CierreDiario extends javax.swing.JFrame {
     private com.gmail.lrchfox3.controles.textos.JEtiquetaBase lblMonto50;
     private com.gmail.lrchfox3.controles.textos.JEtiquetaBase lblMonto500;
     private com.gmail.lrchfox3.controles.textos.JEtiquetaTitulo lblMontoApertura;
-    private com.gmail.lrchfox3.controles.textos.JEtiquetaTitulo lblMontoApertura2;
     private com.gmail.lrchfox3.controles.textos.JEtiquetaTitulo lblMontoTotalCaja;
+    private com.gmail.lrchfox3.controles.textos.JEtiquetaBase lblPOS1;
+    private com.gmail.lrchfox3.controles.textos.JEtiquetaBase lblPOS2;
     private com.gmail.lrchfox3.controles.textos.JEtiquetaBase lblTotalCaja;
     private javax.swing.JMenuItem mnuLimpiar;
     private com.gmail.lrchfox3.controles.paneles.JPanelConTitulo pnlCaja;
@@ -1030,11 +1051,13 @@ public class CierreDiario extends javax.swing.JFrame {
     private com.gmail.lrchfox3.controles.textos.JTextoFormato txtCantidad5;
     private com.gmail.lrchfox3.controles.textos.JTextoFormato txtCantidad50;
     private com.gmail.lrchfox3.controles.textos.JTextoFormato txtCantidad500;
-    private com.gmail.lrchfox3.controles.textos.JTextoFormato txtCantidad502;
-    private com.gmail.lrchfox3.controles.textos.JTextoFormato txtCantidad503;
-    private com.gmail.lrchfox3.controles.textos.JTextoFormato txtCantidad504;
-    private com.gmail.lrchfox3.controles.textos.JTextoFormato txtCantidad505;
+    private com.gmail.lrchfox3.controles.textos.JTextoFormato txtDeposito;
+    private com.gmail.lrchfox3.controles.textos.JTextoBase txtDiferencia;
     private com.gmail.lrchfox3.controles.textos.JTextoFormato txtFacturado;
+    private javax.swing.JTextPane txtJustificacion;
+    private com.gmail.lrchfox3.controles.textos.JTextoFormato txtMontoJustificacion;
     private com.gmail.lrchfox3.controles.textos.JTextoFormato txtMontoMonedas;
+    private com.gmail.lrchfox3.controles.textos.JTextoFormato txtPOS1;
+    private com.gmail.lrchfox3.controles.textos.JTextoFormato txtPOS2;
     // End of variables declaration//GEN-END:variables
 }
