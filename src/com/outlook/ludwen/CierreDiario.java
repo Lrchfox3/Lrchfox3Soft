@@ -6,9 +6,11 @@
 package com.outlook.ludwen;
 
 import static com.gmail.lrchfox3.utilitarios.Utileria.getFechaActual;
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.util.StringTokenizer;
 
 /**
  *
@@ -81,9 +83,9 @@ public class CierreDiario extends javax.swing.JFrame {
         lblApertura1 = new com.gmail.lrchfox3.controles.textos.JEtiquetaBase();
         lblMontoApertura2 = new com.gmail.lrchfox3.controles.textos.JEtiquetaTitulo();
         jPanelConTitulo1 = new com.gmail.lrchfox3.controles.paneles.JPanelConTitulo();
-        jEtiquetaTitulo1 = new com.gmail.lrchfox3.controles.textos.JEtiquetaTitulo();
+        lblFacturado = new com.gmail.lrchfox3.controles.textos.JEtiquetaTitulo();
         jTextoScrollBase1 = new com.gmail.lrchfox3.controles.textos.JTextoScrollBase();
-        txtCantidad501 = new com.gmail.lrchfox3.controles.textos.JTextoFormato();
+        txtFacturado = new com.gmail.lrchfox3.controles.textos.JTextoFormato();
         jPanelConTitulo2 = new com.gmail.lrchfox3.controles.paneles.JPanelConTitulo();
         lbl501 = new com.gmail.lrchfox3.controles.textos.JEtiquetaBase();
         txtCantidad502 = new com.gmail.lrchfox3.controles.textos.JTextoFormato();
@@ -111,7 +113,6 @@ public class CierreDiario extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cierre Diario");
-        setExtendedState(2);
         setResizable(false);
         setState(1);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -428,9 +429,8 @@ public class CierreDiario extends javax.swing.JFrame {
             pnlCajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlCajaLayout.createSequentialGroup()
                 .addGroup(pnlCajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlCajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblMontoApertura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblApertura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblApertura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblMontoApertura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEditarFechaCierre, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
                     .addComponent(dtFechaCierre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnlCajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -476,15 +476,11 @@ public class CierreDiario extends javax.swing.JFrame {
                         .addComponent(lblMonto100, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlCajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblTotalCaja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblMontoTotalCaja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlCajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblTotalCaja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblMontoTotalCaja, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(pnlCajaLayout.createSequentialGroup()
-                        .addGroup(pnlCajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblMonedas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtMontoMonedas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 5, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblMonedas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtMontoMonedas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(pnlCajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlCajaLayout.createSequentialGroup()
                         .addComponent(lblApertura1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -494,37 +490,37 @@ public class CierreDiario extends javax.swing.JFrame {
 
         jPanelConTitulo1.setTitulo("Facturado");
 
-        jEtiquetaTitulo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jEtiquetaTitulo1.setText("Lps");
+        lblFacturado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblFacturado.setText("Lps");
 
-        txtCantidad501.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtCantidad501.setComas(false);
-        txtCantidad501.setNextFocusableComponent(txtCantidad100);
-        txtCantidad501.addFocusListener(new java.awt.event.FocusAdapter() {
+        txtFacturado.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtFacturado.setComas(false);
+        txtFacturado.setNextFocusableComponent(txtCantidad100);
+        txtFacturado.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                txtCantidad501FocusLost(evt);
+                txtFacturadoFocusLost(evt);
             }
         });
-        txtCantidad501.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtFacturado.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtCantidad501KeyReleased(evt);
+                txtFacturadoKeyReleased(evt);
             }
         });
-        jTextoScrollBase1.setViewportView(txtCantidad501);
+        jTextoScrollBase1.setViewportView(txtFacturado);
 
         javax.swing.GroupLayout jPanelConTitulo1Layout = new javax.swing.GroupLayout(jPanelConTitulo1);
         jPanelConTitulo1.setLayout(jPanelConTitulo1Layout);
         jPanelConTitulo1Layout.setHorizontalGroup(
             jPanelConTitulo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jTextoScrollBase1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jEtiquetaTitulo1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblFacturado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanelConTitulo1Layout.setVerticalGroup(
             jPanelConTitulo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelConTitulo1Layout.createSequentialGroup()
                 .addComponent(jTextoScrollBase1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jEtiquetaTitulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblFacturado, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -867,7 +863,7 @@ public class CierreDiario extends javax.swing.JFrame {
         this.lblMonto10.setText("=");
         this.lblMonto5.setText("=");
         this.lblMonto2.setText("=");
-        this.lblMonto1.setText("=");                     
+        this.lblMonto1.setText("=");
         this.lblMontoTotalCaja.setText("Lps");
         this.txtCantidad500.requestFocus();
     }//GEN-LAST:event_mnuLimpiarActionPerformed
@@ -904,13 +900,29 @@ public class CierreDiario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCantidad505KeyReleased
 
-    private void txtCantidad501KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantidad501KeyReleased
+    private void txtFacturadoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFacturadoKeyReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCantidad501KeyReleased
+    }//GEN-LAST:event_txtFacturadoKeyReleased
 
-    private void txtCantidad501FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCantidad501FocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCantidad501FocusLost
+    private void txtFacturadoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFacturadoFocusLost
+        try {
+            StringTokenizer tokens = new StringTokenizer(txtFacturado.getText(), "+");
+            Double fact = new Double(0.0);
+            while (tokens.hasMoreTokens()) {
+                String token = tokens.nextToken();
+                if (!token.isEmpty()) {
+                    Double val = new Double(token);
+                    fact = fact + val.doubleValue();
+                }
+            }
+            lblFacturado.setText("Lps " + df2.format(fact));
+
+        } catch (Exception e) {
+            txtFacturado.setForeground(Color.red);
+            txtFacturado.requestFocus();            
+        }
+
+    }//GEN-LAST:event_txtFacturadoFocusLost
 
     private void totalCaja() {
         double c500 = 500 * Double.parseDouble((this.txtCantidad500.getText().length() <= 0 ? "0" : this.txtCantidad500.getText()));
@@ -967,7 +979,6 @@ public class CierreDiario extends javax.swing.JFrame {
     private com.gmail.lrchfox3.controles.botones.paint.JBotonLapiz btnEditarFechaCierre;
     private com.gmail.lrchfox3.utilitarios.calendario.JDateChooser dtFechaCierre;
     private com.gmail.lrchfox3.controles.botones.JBotonAceptar jBotonAceptar1;
-    private com.gmail.lrchfox3.controles.textos.JEtiquetaTitulo jEtiquetaTitulo1;
     private com.gmail.lrchfox3.controles.textos.JEtiquetaTitulo jEtiquetaTitulo2;
     private com.gmail.lrchfox3.controles.paneles.JPanelConTitulo jPanelConTitulo1;
     private com.gmail.lrchfox3.controles.paneles.JPanelConTitulo jPanelConTitulo2;
@@ -992,6 +1003,7 @@ public class CierreDiario extends javax.swing.JFrame {
     private com.gmail.lrchfox3.controles.textos.JEtiquetaBase lblApertura1;
     private com.gmail.lrchfox3.controles.textos.JEtiquetaBase lblApertura2;
     private com.gmail.lrchfox3.controles.textos.JEtiquetaBase lblCantidadBilletes;
+    private com.gmail.lrchfox3.controles.textos.JEtiquetaTitulo lblFacturado;
     private com.gmail.lrchfox3.controles.textos.JEtiquetaBase lblFecha;
     private com.gmail.lrchfox3.controles.textos.JEtiquetaTitulo lblFechaCierre;
     private com.gmail.lrchfox3.controles.textos.JEtiquetaBase lblMonedas;
@@ -1018,11 +1030,11 @@ public class CierreDiario extends javax.swing.JFrame {
     private com.gmail.lrchfox3.controles.textos.JTextoFormato txtCantidad5;
     private com.gmail.lrchfox3.controles.textos.JTextoFormato txtCantidad50;
     private com.gmail.lrchfox3.controles.textos.JTextoFormato txtCantidad500;
-    private com.gmail.lrchfox3.controles.textos.JTextoFormato txtCantidad501;
     private com.gmail.lrchfox3.controles.textos.JTextoFormato txtCantidad502;
     private com.gmail.lrchfox3.controles.textos.JTextoFormato txtCantidad503;
     private com.gmail.lrchfox3.controles.textos.JTextoFormato txtCantidad504;
     private com.gmail.lrchfox3.controles.textos.JTextoFormato txtCantidad505;
+    private com.gmail.lrchfox3.controles.textos.JTextoFormato txtFacturado;
     private com.gmail.lrchfox3.controles.textos.JTextoFormato txtMontoMonedas;
     // End of variables declaration//GEN-END:variables
 }

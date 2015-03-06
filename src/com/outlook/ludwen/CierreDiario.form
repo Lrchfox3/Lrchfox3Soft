@@ -22,7 +22,6 @@
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="title" type="java.lang.String" value="Cierre Diario"/>
-    <Property name="extendedState" type="int" value="2"/>
     <Property name="resizable" type="boolean" value="false"/>
     <Property name="state" type="int" value="1"/>
   </Properties>
@@ -205,10 +204,8 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblMontoApertura" alignment="3" max="32767" attributes="0"/>
-                          <Component id="lblApertura" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="lblApertura" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblMontoApertura" min="-2" max="-2" attributes="0"/>
                       <Component id="btnEditarFechaCierre" pref="33" max="32767" attributes="0"/>
                       <Component id="dtFechaCierre" alignment="0" max="32767" attributes="0"/>
                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
@@ -264,19 +261,13 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="lblTotalCaja" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblMontoTotalCaja" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblTotalCaja" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblMontoTotalCaja" alignment="3" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblMonedas" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtMontoMonedas" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace pref="5" max="32767" attributes="0"/>
+                          <Component id="lblMonedas" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtMontoMonedas" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Component id="lblApertura1" min="-2" max="-2" attributes="0"/>
@@ -652,7 +643,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="jTextoScrollBase1" alignment="0" max="32767" attributes="0"/>
-              <Component id="jEtiquetaTitulo1" alignment="1" max="32767" attributes="0"/>
+              <Component id="lblFacturado" alignment="1" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -660,14 +651,14 @@
               <Group type="102" attributes="0">
                   <Component id="jTextoScrollBase1" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jEtiquetaTitulo1" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="lblFacturado" min="-2" pref="25" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaTitulo" name="jEtiquetaTitulo1">
+        <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaTitulo" name="lblFacturado">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Lps"/>
@@ -677,7 +668,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="com.gmail.lrchfox3.controles.textos.JTextoFormato" name="txtCantidad501">
+            <Component class="com.gmail.lrchfox3.controles.textos.JTextoFormato" name="txtFacturado">
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="comas" type="boolean" value="false"/>
@@ -686,8 +677,8 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtCantidad501FocusLost"/>
-                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCantidad501KeyReleased"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtFacturadoFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtFacturadoKeyReleased"/>
               </Events>
             </Component>
           </SubComponents>
