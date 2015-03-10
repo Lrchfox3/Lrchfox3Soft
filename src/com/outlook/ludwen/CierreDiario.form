@@ -26,7 +26,7 @@
     <Property name="state" type="int" value="1"/>
   </Properties>
   <SyntheticProperties>
-    <SyntheticProperty name="formSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,77,0,0,1,-20"/>
+    <SyntheticProperty name="formSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,77,0,0,1,-26"/>
     <SyntheticProperty name="formSizePolicy" type="int" value="0"/>
     <SyntheticProperty name="generateSize" type="boolean" value="true"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
@@ -49,14 +49,9 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Component id="jPanelConTitulo2" alignment="0" pref="470" max="32767" attributes="0"/>
-                  <Component id="jPanelConTitulo1" pref="470" max="32767" attributes="0"/>
-                  <Component id="pnlCaja" min="-2" pref="470" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="0" pref="6" max="32767" attributes="0"/>
-          </Group>
+          <Component id="jPanelConTitulo2" alignment="0" pref="470" max="32767" attributes="0"/>
+          <Component id="jPanelConTitulo1" alignment="1" pref="470" max="32767" attributes="0"/>
+          <Component id="pnlCaja" alignment="1" min="-2" pref="470" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -385,9 +380,10 @@
         <Component class="com.gmail.lrchfox3.controles.textos.JTextoFormato" name="txtCantidad500">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="comas" type="boolean" value="false"/>
+            <Property name="comas" type="boolean" value="true"/>
             <Property name="expresionRegular" type="java.lang.String" value="\u005cd*" containsInvalidXMLChars="true"/>
-            <Property name="maxCaracteres" type="int" value="3"/>
+            <Property name="formato" type="int" value="1"/>
+            <Property name="maxCaracteres" type="int" value="4"/>
             <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
               <ComponentRef name="txtCantidad100"/>
             </Property>
@@ -400,6 +396,9 @@
         <Component class="com.gmail.lrchfox3.controles.textos.JTextoFormato" name="txtCantidad100">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="comas" type="boolean" value="true"/>
+            <Property name="formato" type="int" value="1"/>
+            <Property name="maxCaracteres" type="int" value="4"/>
             <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
               <ComponentRef name="txtCantidad50"/>
             </Property>
@@ -412,6 +411,9 @@
         <Component class="com.gmail.lrchfox3.controles.textos.JTextoFormato" name="txtCantidad50">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="comas" type="boolean" value="true"/>
+            <Property name="formato" type="int" value="1"/>
+            <Property name="maxCaracteres" type="int" value="4"/>
             <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
               <ComponentRef name="txtCantidad20"/>
             </Property>
@@ -424,6 +426,9 @@
         <Component class="com.gmail.lrchfox3.controles.textos.JTextoFormato" name="txtCantidad20">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="comas" type="boolean" value="true"/>
+            <Property name="formato" type="int" value="1"/>
+            <Property name="maxCaracteres" type="int" value="4"/>
             <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
               <ComponentRef name="txtCantidad10"/>
             </Property>
@@ -436,6 +441,9 @@
         <Component class="com.gmail.lrchfox3.controles.textos.JTextoFormato" name="txtCantidad10">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="comas" type="boolean" value="true"/>
+            <Property name="formato" type="int" value="1"/>
+            <Property name="maxCaracteres" type="int" value="4"/>
             <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
               <ComponentRef name="txtCantidad5"/>
             </Property>
@@ -448,6 +456,9 @@
         <Component class="com.gmail.lrchfox3.controles.textos.JTextoFormato" name="txtCantidad5">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="comas" type="boolean" value="true"/>
+            <Property name="formato" type="int" value="1"/>
+            <Property name="maxCaracteres" type="int" value="4"/>
             <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
               <ComponentRef name="txtCantidad2"/>
             </Property>
@@ -460,6 +471,9 @@
         <Component class="com.gmail.lrchfox3.controles.textos.JTextoFormato" name="txtCantidad2">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="comas" type="boolean" value="true"/>
+            <Property name="formato" type="int" value="1"/>
+            <Property name="maxCaracteres" type="int" value="4"/>
             <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
               <ComponentRef name="txtCantidad1"/>
             </Property>
@@ -472,6 +486,9 @@
         <Component class="com.gmail.lrchfox3.controles.textos.JTextoFormato" name="txtCantidad1">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="comas" type="boolean" value="true"/>
+            <Property name="formato" type="int" value="1"/>
+            <Property name="maxCaracteres" type="int" value="4"/>
             <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
               <ComponentRef name="txtMontoMonedas"/>
             </Property>
@@ -484,12 +501,16 @@
         <Component class="com.gmail.lrchfox3.controles.textos.JTextoFormato" name="txtMontoMonedas">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="comas" type="boolean" value="false"/>
+            <Property name="comas" type="boolean" value="true"/>
             <Property name="formato" type="int" value="2"/>
             <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
               <ComponentRef name="txtFacturado"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtMontoMonedasFocusLost"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtMontoMonedasKeyReleased"/>
+          </Events>
         </Component>
         <Component class="com.gmail.lrchfox3.controles.textos.JEtiquetaTitulo" name="lblMontoTotalCaja">
           <Properties>
@@ -813,9 +834,8 @@
         <Component class="com.gmail.lrchfox3.controles.textos.JTextoFormato" name="txtPOS1">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="comas" type="boolean" value="false"/>
-            <Property name="expresionRegular" type="java.lang.String" value="[0-9]+(\u005c.[0-9][0-9]?)?" containsInvalidXMLChars="true"/>
-            <Property name="maxCaracteres" type="int" value="12"/>
+            <Property name="comas" type="boolean" value="true"/>
+            <Property name="formato" type="int" value="2"/>
             <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
               <ComponentRef name="txtPOS2"/>
             </Property>
@@ -839,9 +859,9 @@
         <Component class="com.gmail.lrchfox3.controles.textos.JTextoFormato" name="txtPOS2">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="comas" type="boolean" value="false"/>
+            <Property name="comas" type="boolean" value="true"/>
             <Property name="expresionRegular" type="java.lang.String" value="[0-9]+(\u005c.[0-9][0-9]?)?" containsInvalidXMLChars="true"/>
-            <Property name="maxCaracteres" type="int" value="12"/>
+            <Property name="formato" type="int" value="2"/>
             <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
               <ComponentRef name="txtMontoJustificacion"/>
             </Property>
@@ -914,10 +934,9 @@
         </Component>
         <Component class="com.gmail.lrchfox3.controles.textos.JTextoFormato" name="txtDeposito">
           <Properties>
-            <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="comas" type="boolean" value="false"/>
+            <Property name="comas" type="boolean" value="true"/>
             <Property name="expresionRegular" type="java.lang.String" value="[0-9]+(\u005c.[0-9][0-9]?)?" containsInvalidXMLChars="true"/>
-            <Property name="maxCaracteres" type="int" value="12"/>
+            <Property name="formato" type="int" value="2"/>
             <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
               <ComponentRef name="btnAceptar"/>
             </Property>
@@ -943,9 +962,9 @@
         <Component class="com.gmail.lrchfox3.controles.textos.JTextoFormato" name="txtMontoJustificacion">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="comas" type="boolean" value="false"/>
+            <Property name="comas" type="boolean" value="true"/>
             <Property name="expresionRegular" type="java.lang.String" value="[0-9]+(\u005c.[0-9][0-9]?)?" containsInvalidXMLChars="true"/>
-            <Property name="maxCaracteres" type="int" value="8"/>
+            <Property name="formato" type="int" value="2"/>
             <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
               <ComponentRef name="txtJustificacion"/>
             </Property>
