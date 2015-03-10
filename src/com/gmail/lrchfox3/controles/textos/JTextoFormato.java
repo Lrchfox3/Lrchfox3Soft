@@ -109,7 +109,16 @@ public class JTextoFormato extends javax.swing.JFormattedTextField implements ja
                         return;
                     }
                 }
-                if (!numeros.isNumero(c) && !isPunto && c != '\b' && c != '\u007f') {
+                boolean isMenos = false;
+                isMenos = numeros.isSignoMenos(c);
+                if (isMenos) {
+                    if (getText().indexOf('-') > -1) {
+                        evt.consume();
+                        return;
+                    }
+                }
+                
+                if (!numeros.isNumero(c) && !isPunto && !isMenos && c != '\b' && c != '\u007f') {
                     evt.consume();
                     return;
                 }
@@ -273,7 +282,8 @@ public class JTextoFormato extends javax.swing.JFormattedTextField implements ja
                 
             case FORMATO_DECIMAL:
                 setComas(true);
-       //         setExpresionRegular("[\\-]?[0-9]*[\\.]?[0-9]*"); 
+       //         setExpresionRegular("[\\-]?[0-9]*[\\.]?[0-9]*");      
+                setExpresionRegular("^(\\+|-)?[0-9]+(\\.([0-9]{1,2})?)?$");
                 setHorizontalAlignment(RIGHT);
                 setLimitesDecimal(maximoDecimal);
                 break;
@@ -309,56 +319,56 @@ public class JTextoFormato extends javax.swing.JFormattedTextField implements ja
     }
     
     
-    /** Define el l�mite m�ximo de un texto definido como entero.
+    /** Define el lï¿½mite mï¿½ximo de un texto definido como entero.
      *
-     * @param maxEntero M�ximo n�mero de caracteres enteros permitidos.
+     * @param maxEntero Mï¿½ximo nï¿½mero de caracteres enteros permitidos.
      *
-     * ej: si maxEntero es 4, solamente se aceptar�n n�meros menores que 10000.
+     * ej: si maxEntero es 4, solamente se aceptarï¿½n nï¿½meros menores que 10000.
      */
     public void setLimitesEntero(int maxEntero) {        
         setLimitesEntero(0, maxEntero);
     }
     
-    /** Define los l�mites m�nimos y m�ximos de un texto definido como n�mero entero.
+    /** Define los lï¿½mites mï¿½nimos y mï¿½ximos de un texto definido como nï¿½mero entero.
      *
-     * @param minEntero M�nimo n�mero de caracteres enteros permitidos.
-     * @param maxEntero M�ximo n�mero de caracteres enteros permitidos.
+     * @param minEntero Mï¿½nimo nï¿½mero de caracteres enteros permitidos.
+     * @param maxEntero Mï¿½ximo nï¿½mero de caracteres enteros permitidos.
      *
-     * ej: si minEntero es 2 y maxEntero es 3, solamente se aceptar�n n�meros
+     * ej: si minEntero es 2 y maxEntero es 3, solamente se aceptarï¿½n nï¿½meros
      * mayores a 9 y menores que 1000.
      */
     public void setLimitesEntero(int minEntero, int maxEntero) {                         
         setLimitesNumero(minEntero, maxEntero, minimoDecimal, maximoDecimal);        
     }
     
-    /** Define el l�mite m�ximo de la parte decimal de un texto definido como n�mero.
+    /** Define el lï¿½mite mï¿½ximo de la parte decimal de un texto definido como nï¿½mero.
      *
-     * @param maxDecimal M�ximo n�mero de caracteres decimales permitidos.
+     * @param maxDecimal Mï¿½ximo nï¿½mero de caracteres decimales permitidos.
      *
-     * ej: si maxDecimal es 2, solamente se aceptar�n n�meros con decimales menores a .100.
+     * ej: si maxDecimal es 2, solamente se aceptarï¿½n nï¿½meros con decimales menores a .100.
      */
     public void setLimitesDecimal(int maxDecimal) {
         setLimitesDecimal(0, maxDecimal);
     }
     
-    /** Define los l�mites m�nimos y m�ximos de la parte decimal de un texto definido como n�mero.
+    /** Define los lï¿½mites mï¿½nimos y mï¿½ximos de la parte decimal de un texto definido como nï¿½mero.
      *
-     * @param minDecimal M�nimo n�mero de caracteres decimales permitidos.
-     * @param maxDecimal M�ximo n�mero de caracteres decimales permitidos.
+     * @param minDecimal Mï¿½nimo nï¿½mero de caracteres decimales permitidos.
+     * @param maxDecimal Mï¿½ximo nï¿½mero de caracteres decimales permitidos.
      *
-     * ej: si minDecimal es 1 y maxDecimal es 2, solamente se aceptar�n n�meros
+     * ej: si minDecimal es 1 y maxDecimal es 2, solamente se aceptarï¿½n nï¿½meros
      * con decimales mayores a .0 y menores que .100.
      */
     public void setLimitesDecimal(int minDecimal, int maxDecimal) {                        
         setLimitesNumero(minimoEntero, maximoEntero, minDecimal, maxDecimal);
     }
     
-    /** Define los l�mites m�ximos de un texto definido como n�mero.
+    /** Define los lï¿½mites mï¿½ximos de un texto definido como nï¿½mero.
      *
-     * @param maxEntero M�ximo n�mero de caracteres permitidos en la parte entera del n�mero.
-     * @param maxDecimal M�ximo n�mero de caracteres decimales permitidos.
+     * @param maxEntero Mï¿½ximo nï¿½mero de caracteres permitidos en la parte entera del nï¿½mero.
+     * @param maxDecimal Mï¿½ximo nï¿½mero de caracteres decimales permitidos.
      *
-     * ej: si maxEntero es 2 y maxDecimal es 2, solamente se aceptar�n n�meros
+     * ej: si maxEntero es 2 y maxDecimal es 2, solamente se aceptarï¿½n nï¿½meros
      * con decimales menores o iguales a 99.99.
      */
     public void setLimitesNumero(int maxEntero, int maxDecimal) {                
@@ -456,7 +466,7 @@ public class JTextoFormato extends javax.swing.JFormattedTextField implements ja
             matcher.reset(string); // set 'string' as the matcher's input
 
             if (!matcher.matches()) { // Does 'string' match the regular expression?
-                throw new java.text.ParseException("No mantiene el formato de la expresi�n regular.", 0);
+                throw new java.text.ParseException("No mantiene el formato de la expresiï¿½n regular.", 0);
             }            
             if ( string.length() >=  numeroMaximoCaracteres) {               
                getToolkit().beep();               
@@ -470,7 +480,7 @@ public class JTextoFormato extends javax.swing.JFormattedTextField implements ja
     }     
     // </editor-fold>
     
-    // <editor-fold defaultstate="collapsed" desc=" Declaración de variables ">
+    // <editor-fold defaultstate="collapsed" desc=" DeclaraciÃ³n de variables ">
     
     public static final int FORMATO_DEFAULT = 0;    
     public static final int FORMATO_ENTERO = 1;
