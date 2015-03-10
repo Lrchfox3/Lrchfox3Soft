@@ -10,16 +10,16 @@ package com.gmail.lrchfox3.controles.textos;
 import com.gmail.lrchfox3.utilitarios.Propiedades;
 import java.awt.event.*;
 import java.util.regex.Pattern;
-import java.math.BigDecimal;
+//import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import javax.swing.JSeparator;
 import javax.swing.text.MaskFormatter;
-import javax.swing.text.NumberFormatter;
+//import javax.swing.text.NumberFormatter;
 import javax.swing.text.DefaultFormatter;
 import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.JFormattedTextField;
-import javax.swing.JFormattedTextField.AbstractFormatter;
+//import javax.swing.JFormattedTextField.AbstractFormatter;
 // </editor-fold>
 
 /**
