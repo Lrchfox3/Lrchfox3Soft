@@ -271,8 +271,8 @@ public class CierreDiario extends javax.swing.JFrame {
         });
 
         txtMontoMonedas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtMontoMonedas.setExpresionRegular("^(+|-)?[0-9]+(\\.([0-9]{1,2})?)?$");
-        txtMontoMonedas.setMaxCaracteres(12);
+        txtMontoMonedas.setComas(false);
+        txtMontoMonedas.setFormato(2);
         txtMontoMonedas.setNextFocusableComponent(txtFacturado);
 
         lblMontoTotalCaja.setText("Lps");
