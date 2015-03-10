@@ -270,13 +270,13 @@ public class JTextoFormato extends javax.swing.JFormattedTextField implements ja
         switch(this.formato) {
             case FORMATO_DEFAULT:
                 setExpresionRegular("[\\p{ASCII}]*");  
-                setHorizontalAlignment(javax.swing.JTextField.LEADING);
+                //setHorizontalAlignment(javax.swing.JTextField.LEADING);
                 break;
                 
             case FORMATO_ENTERO:    
                 setComas(true);
         //        setExpresionRegular("[\\-]?[0-9]*");
-                setHorizontalAlignment(RIGHT);
+                //setHorizontalAlignment(RIGHT);
                 setLimitesEntero(maximoEntero); 
                 break;
                 
@@ -284,14 +284,14 @@ public class JTextoFormato extends javax.swing.JFormattedTextField implements ja
                 setComas(true);
        //         setExpresionRegular("[\\-]?[0-9]*[\\.]?[0-9]*");      
                 setExpresionRegular("^(\\+|-)?[0-9]+(\\.([0-9]{1,2})?)?$");
-                setHorizontalAlignment(RIGHT);
+                //setHorizontalAlignment(RIGHT);
                 setLimitesDecimal(maximoDecimal);
                 break;
                 
             case FORMATO_SOLO_NUMEROS:
                 setComas(false);
                 setExpresionRegular("[0-9]*");
-                setHorizontalAlignment(LEFT);
+                //setHorizontalAlignment(LEFT);
                 break;
                 
             case FORMATO_SOLO_LETRAS: 
@@ -300,12 +300,12 @@ public class JTextoFormato extends javax.swing.JFormattedTextField implements ja
                 
             case FORMATO_SOLO_LETRAS_NUMEROS:
                 setExpresionRegular("[[a-z]*[A-Z]*[0-9]*]*");
-                setHorizontalAlignment(javax.swing.JTextField.LEADING);
+                //setHorizontalAlignment(javax.swing.JTextField.LEADING);
                 break;
                 
             default:
                 setExpresionRegular("[\\p{ASCII}]*");
-                setHorizontalAlignment(javax.swing.JTextField.LEADING);
+                //setHorizontalAlignment(javax.swing.JTextField.LEADING);
                 break;
         }
     } 
