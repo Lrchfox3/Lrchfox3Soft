@@ -35,7 +35,7 @@ public class Numeros {
      *
      * @param c Caracter para el cual se desea determinar si es numero.
      *
-     * @return Verdadero si es nï¿½mero, Falso si no lo es.
+     * @return Verdadero si es n�mero, Falso si no lo es.
      */
     public boolean isNumero(char c) {
         boolean isNumber = true;
@@ -125,7 +125,7 @@ public class Numeros {
         ResultSet rs = bd.ejecutarSentencia(st, sql);                
         
         if (rs.next()) correlativo = new Integer(rs.getObject("codigo").toString()).intValue();
-        else throw new Exception("No se generï¿½ el cï¿½digo correlativo de " + rs.getMetaData().getColumnName(1) + " en " + rs.getMetaData().getTableName(1) + ".");
+        else throw new Exception("No se gener� el c�digo correlativo de " + rs.getMetaData().getColumnName(1) + " en " + rs.getMetaData().getTableName(1) + ".");
         
         return correlativo;
     }
@@ -151,7 +151,7 @@ public class Numeros {
      * @param tabla Tabla en la cual se genera el codigo.
      * @param campo Campo que se utiliza para generar el codigo.
      * @param inicio caracter donde comienza el numero.
-     * @param tamanyo tamaï¿½o del numero.
+     * @param tamanyo tama�o del numero.
      *
      *@return Entero con el correlativo generado.
      */
