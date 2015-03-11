@@ -661,6 +661,9 @@
     </Container>
     <Container class="com.gmail.lrchfox3.controles.paneles.JPanelConTitulo" name="jPanelConTitulo1">
       <Properties>
+        <Property name="componentPopupMenu" type="javax.swing.JPopupMenu" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="popCaja"/>
+        </Property>
         <Property name="titulo" type="java.lang.String" value="Facturado"/>
       </Properties>
 
@@ -712,6 +715,9 @@
     </Container>
     <Container class="com.gmail.lrchfox3.controles.paneles.JPanelConTitulo" name="jPanelConTitulo2">
       <Properties>
+        <Property name="componentPopupMenu" type="javax.swing.JPopupMenu" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="popCaja"/>
+        </Property>
         <Property name="titulo" type="java.lang.String" value="Cierre"/>
       </Properties>
 
@@ -860,7 +866,6 @@
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="comas" type="boolean" value="true"/>
-            <Property name="expresionRegular" type="java.lang.String" value="[0-9]+(\u005c.[0-9][0-9]?)?" containsInvalidXMLChars="true"/>
             <Property name="formato" type="int" value="2"/>
             <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
               <ComponentRef name="txtMontoJustificacion"/>
@@ -888,6 +893,9 @@
               <ComponentRef name="txtCantidad500"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAceptarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="com.gmail.lrchfox3.controles.textos.JTextoBase" name="txtDiferencia">
           <Properties>
@@ -934,8 +942,8 @@
         </Component>
         <Component class="com.gmail.lrchfox3.controles.textos.JTextoFormato" name="txtDeposito">
           <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="comas" type="boolean" value="true"/>
-            <Property name="expresionRegular" type="java.lang.String" value="[0-9]+(\u005c.[0-9][0-9]?)?" containsInvalidXMLChars="true"/>
             <Property name="formato" type="int" value="2"/>
             <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
               <ComponentRef name="btnAceptar"/>
@@ -963,7 +971,6 @@
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="comas" type="boolean" value="true"/>
-            <Property name="expresionRegular" type="java.lang.String" value="[0-9]+(\u005c.[0-9][0-9]?)?" containsInvalidXMLChars="true"/>
             <Property name="formato" type="int" value="2"/>
             <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
               <ComponentRef name="txtJustificacion"/>

@@ -7,6 +7,7 @@ package com.outlook.ludwen.DBObject;
 
 import com.gmail.lrchfox3.basedatos.Campo;
 import com.gmail.lrchfox3.basedatos.SqlTipos;
+import java.sql.Date;
 
 /**
  *
@@ -14,48 +15,48 @@ import com.gmail.lrchfox3.basedatos.SqlTipos;
  */
 public class CierreDiario extends Base {
 
-    protected Campo secuencia = null;        //1
-    protected Campo codigoTienda = null;        //2
-    protected Campo fechaCierre = null;        //3
-    protected Campo cajaInicio = null;        //4
-    protected Campo cantidad500 = null;        //5
-    protected Campo cantidad100 = null;        //6
-    protected Campo cantidad50 = null;        //7
-    protected Campo cantidad20 = null;        //8
-    protected Campo cantidad10 = null;        //9
-    protected Campo cantidad5 = null;        //10
-    protected Campo cantidad2 = null;        //11
-    protected Campo cantidad1 = null;        //12
-    protected Campo montoMoneda = null;        //13
-    protected Campo montoFacturado = null;        //14
-    protected Campo montoPOS1 = null;        //15
-    protected Campo montoPOS2 = null;        //16
-    protected Campo montoJustificacion = null;        //17
-    protected Campo justificacion = null;        //18
-    protected Campo montoDeposito = null;        //19
-    protected Campo cajaFinal = null;        //20
+    protected Campo secuencia= null;        //1
+    protected Campo codigoTienda= null;        //2
+    protected Campo fechaCierre= null;        //3
+    protected Campo cajaInicio= null;        //4
+    protected Campo cantidad500= null;        //5
+    protected Campo cantidad100= null;        //6
+    protected Campo cantidad50= null;        //7
+    protected Campo cantidad20= null;        //8
+    protected Campo cantidad10= null;        //9
+    protected Campo cantidad5= null;        //10
+    protected Campo cantidad2= null;        //11
+    protected Campo cantidad1= null;        //12
+    protected Campo montoMoneda= null;        //13
+    protected Campo montoFacturado= null;        //14
+    protected Campo montoPOS1= null;        //15
+    protected Campo montoPOS2= null;        //16
+    protected Campo montoJustificacion= null;        //17
+    protected Campo justificacion= null;        //18
+    protected Campo montoDeposito=null;        //19
+    protected Campo cajaFinal=null;        //20
 
     public CierreDiario() {
-        secuencia = new Campo("secuencia", "Secuencia", SqlTipos.INTEGER, true);
-        codigoTienda = new Campo("codigo_tienda", "Código Tienda", SqlTipos.INTEGER);
-        fechaCierre = new Campo("fecha_cierre", "Fecha Cierre", SqlTipos.DATE_TIME);
-        cajaInicio = new Campo("caja_Inicio", "Caja Inicio", SqlTipos.DECIMAL);
-        cantidad500 = new Campo("cantidad_500", "Billetes 500", SqlTipos.INTEGER);
-        cantidad100 = new Campo("cantidad_100", "Billetes 100", SqlTipos.INTEGER);
-        cantidad50 = new Campo("cantidad_50", "Billetes 50", SqlTipos.INTEGER);
-        cantidad20 = new Campo("cantidad_20", "Billetes 20", SqlTipos.INTEGER);
-        cantidad10 = new Campo("cantidad_10", "Billetes 10", SqlTipos.INTEGER);
-        cantidad5 = new Campo("cantidad_5", "Billetes 5", SqlTipos.INTEGER);
-        cantidad2 = new Campo("cantidad_2", "Billetes 2", SqlTipos.INTEGER);
-        cantidad1 = new Campo("cantidad_1", "Billetes 1", SqlTipos.INTEGER);
-        montoMoneda = new Campo("monto_Moneda", "Monedas", SqlTipos.INTEGER);
-        montoFacturado = new Campo("monto_Facturado", "Facturado", SqlTipos.INTEGER);
-        montoPOS1 = new Campo("monto_POS1", "POS 1", SqlTipos.INTEGER);
-        montoPOS2 = new Campo("monto_POS2", "POS 2", SqlTipos.INTEGER);
-        montoJustificacion = new Campo("monto_Justificacion", "Monto Justificación", SqlTipos.INTEGER);
-        justificacion = new Campo("justificacion", "Justificación", SqlTipos.INTEGER);
-        montoDeposito = new Campo("cantidad_1", "Billetes 1", SqlTipos.INTEGER);
-        cajaFinal = new Campo("monto_Deposito", "Deposito", SqlTipos.INTEGER);
+        secuencia= new Campo("secuencia", "Secuencia", SqlTipos.INTEGER, true);
+        codigoTienda= new Campo("codigo_tienda", "Código Tienda", SqlTipos.INTEGER, true);
+        fechaCierre= new Campo("fecha_cierre", "Fecha Cierre", SqlTipos.DATE_TIME);
+        cajaInicio= new Campo("caja_Inicio", "Caja Inicio", SqlTipos.DECIMAL);
+        cantidad500= new Campo("cantidad_500", "Billetes 500", SqlTipos.INTEGER);
+        cantidad100= new Campo("cantidad_100", "Billetes 100", SqlTipos.INTEGER);
+        cantidad50= new Campo("cantidad_50", "Billetes 50", SqlTipos.INTEGER);
+        cantidad20= new Campo("cantidad_20", "Billetes 20", SqlTipos.INTEGER);
+        cantidad10= new Campo("cantidad_10", "Billetes 10", SqlTipos.INTEGER);
+        cantidad5= new Campo("cantidad_5", "Billetes 5", SqlTipos.INTEGER);
+        cantidad2= new Campo("cantidad_2", "Billetes 2", SqlTipos.INTEGER);
+        cantidad1= new Campo("cantidad_1", "Billetes 1", SqlTipos.INTEGER);
+        montoMoneda= new Campo("monto_Moneda", "Monedas", SqlTipos.DECIMAL);
+        montoFacturado= new Campo("monto_Facturado", "Facturado", SqlTipos.DECIMAL);
+        montoPOS1= new Campo("monto_POS1", "POS 1", SqlTipos.DECIMAL);
+        montoPOS2= new Campo("monto_POS2", "POS 2", SqlTipos.DECIMAL);
+        montoJustificacion= new Campo("monto_Justificacion", "Monto Justificación", SqlTipos.DECIMAL);
+        justificacion= new Campo("justificacion", "Justificación", SqlTipos.VARCHAR);
+        montoDeposito= new Campo("deposito", "Deposito", SqlTipos.DECIMAL);
+        cajaFinal= new Campo("caja_Final", "Caja Final", SqlTipos.DECIMAL);
         setTabla("CIERRE_DIARIO");
         setTitulo("Cierre Diario");
     }
@@ -145,7 +146,7 @@ public class CierreDiario extends Base {
     }
 
     public void setSecuencia(int secuencia) {
-        this.secuencia.setValue( secuencia);
+        this.secuencia.setValue(secuencia);
     }
 
     public int getCodigoTienda() {
@@ -153,155 +154,151 @@ public class CierreDiario extends Base {
     }
 
     public void setCodigoTienda(int codigoTienda) {
-        this.codigoTienda.setValue( codigoTienda);
+        this.codigoTienda.setValue(codigoTienda);
     }
 
-    public Campo getFechaCierre() {
-        return fechaCierre;
+    public Date getFechaCierre() {
+        return fechaCierre.getDateValue();
     }
 
-    public void setFechaCierre(Campo fechaCierre) {
-        this.fechaCierre = fechaCierre;
+    public void setFechaCierre(Date fechaCierre) {
+        this.fechaCierre.setValue(fechaCierre);
     }
 
-    public Campo getCajaInicio() {
-        return cajaInicio;
+    public double getCajaInicio() {
+        return cajaInicio.getDoubleValue();
     }
 
-    public void setCajaInicio(Campo cajaInicio) {
-        this.cajaInicio = cajaInicio;
+    public void setCajaInicio(double cajaInicio) {
+        this.cajaInicio.setValue(cajaInicio);
     }
 
-    public Campo getCantidad500() {
-        return cantidad500;
+    public int getCantidad500() {
+        return cantidad500.getIntValue();
     }
 
-    public void setCantidad500(Campo cantidad500) {
-        this.cantidad500 = cantidad500;
+    public void setCantidad500(int cantidad500) {
+        this.cantidad500.setValue(cantidad500);
     }
 
-    public Campo getCantidad100() {
-        return cantidad100;
+    public int getCantidad100() {
+        return cantidad100.getIntValue();
     }
 
-    public void setCantidad100(Campo cantidad100) {
-        this.cantidad100 = cantidad100;
+    public void setCantidad100(int cantidad100) {
+        this.cantidad100.setValue(cantidad100);
     }
 
-    public Campo getCantidad50() {
-        return cantidad50;
+    public int getCantidad50() {
+        return cantidad50.getIntValue();
     }
 
-    public void setCantidad50(Campo cantidad50) {
-        this.cantidad50 = cantidad50;
+    public void setCantidad50(int cantidad50) {
+        this.cantidad50.setValue( cantidad50);
     }
 
-    public Campo getCantidad20() {
-        return cantidad20;
+    public int getCantidad20() {
+        return cantidad20.getIntValue();
     }
 
-    public void setCantidad20(Campo cantidad20) {
-        this.cantidad20 = cantidad20;
+    public void setCantidad20(int cantidad20) {
+        this.cantidad20.setValue(cantidad20);
     }
 
-    public Campo getCantidad10() {
-        return cantidad10;
+    public int getCantidad10() {
+        return cantidad10.getIntValue();
     }
 
-    public void setCantidad10(Campo cantidad10) {
-        this.cantidad10 = cantidad10;
+    public void setCantidad10(int cantidad10) {
+        this.cantidad10.setValue(cantidad10);
     }
 
-    public Campo getCantidad5() {
-        return cantidad5;
+    public int getCantidad5() {
+        return cantidad5.getIntValue();
     }
 
-    public void setCantidad5(Campo cantidad5) {
-        this.cantidad5 = cantidad5;
+    public void setCantidad5(int cantidad5) {
+        this.cantidad5.setValue( cantidad5);
     }
 
-    public Campo getCantidad2() {
-        return cantidad2;
+    public int getCantidad2() {
+        return cantidad2.getIntValue();
     }
 
-    public void setCantidad2(Campo cantidad2) {
-        this.cantidad2 = cantidad2;
+    public void setCantidad2(int cantidad2) {
+        this.cantidad2.setValue(cantidad2);
     }
 
-    public Campo getCantidad1() {
-        return cantidad1;
+    public int getCantidad1() {
+        return cantidad1.getIntValue();
     }
 
-    public void setCantidad1(Campo cantidad1) {
-        this.cantidad1 = cantidad1;
+    public void setCantidad1(int cantidad1) {
+        this.cantidad1.setValue(cantidad1);
     }
 
-    public Campo getMontoMoneda() {
-        return montoMoneda;
+    public double getMontoMoneda() {
+        return montoMoneda.getDoubleValue();
     }
 
-    public void setMontoMoneda(Campo montoMoneda) {
-        this.montoMoneda = montoMoneda;
+    public void setMontoMoneda(double montoMoneda) {
+        this.montoMoneda.setValue( montoMoneda);
     }
 
-    public Campo getMontoFacturado() {
-        return montoFacturado;
+    public double getMontoFacturado() {
+        return montoFacturado.getDoubleValue();
     }
 
-    public void setMontoFacturado(Campo montoFacturado) {
-        this.montoFacturado = montoFacturado;
+    public void setMontoFacturado(double montoFacturado) {
+        this.montoFacturado.setValue(montoFacturado);
     }
 
-    public Campo getMontoPOS1() {
-        return montoPOS1;
+    public double getMontoPOS1() {
+        return montoPOS1.getDoubleValue();
     }
 
-    public void setMontoPOS1(Campo montoPOS1) {
-        this.montoPOS1 = montoPOS1;
+    public void setMontoPOS1(double montoPOS1) {
+        this.montoPOS1.setValue(montoPOS1);
     }
 
-    public Campo getMontoPOS2() {
-        return montoPOS2;
+    public double getMontoPOS2() {
+        return montoPOS2.getDoubleValue();
     }
 
-    public void setMontoPOS2(Campo montoPOS2) {
-        this.montoPOS2 = montoPOS2;
+    public void setMontoPOS2(double montoPOS2) {
+        this.montoPOS2.setValue(montoPOS2);
     }
 
-    public Campo getMontoJustificacion() {
-        return montoJustificacion;
+    public double getMontoJustificacion() {
+        return montoJustificacion.getDoubleValue();
     }
 
-    public void setMontoJustificacion(Campo montoJustificacion) {
-        this.montoJustificacion = montoJustificacion;
+    public void setMontoJustificacion(double montoJustificacion) {
+        this.montoJustificacion.setValue(montoJustificacion);
     }
 
-    public Campo getJustificacion() {
-        return justificacion;
+    public String getJustificacion() {
+        return justificacion.getStringValue();
     }
 
-    public void setJustificacion(Campo justificacion) {
-        this.justificacion = justificacion;
+    public void setJustificacion(String justificacion) {
+        this.justificacion.setValue(justificacion);
     }
 
-    public Campo getMontoDeposito() {
-        return montoDeposito;
+    public double getMontoDeposito() {
+        return montoDeposito.getDoubleValue();
     }
 
-    public void setMontoDeposito(Campo montoDeposito) {
-        this.montoDeposito = montoDeposito;
+    public void setMontoDeposito(double montoDeposito) {
+        this.montoDeposito.setValue(montoDeposito);
     }
 
-    public Campo getCajaFinal() {
-        return cajaFinal;
+    public double getCajaFinal() {
+        return cajaFinal.getDoubleValue();
     }
 
-    public void setCajaFinal(Campo cajaFinal) {
-        this.cajaFinal = cajaFinal;
+    public void setCajaFinal(double cajaFinal) {
+        this.cajaFinal.setValue(cajaFinal);
     }
-    
-    
-    
-   
-    
+
 }
