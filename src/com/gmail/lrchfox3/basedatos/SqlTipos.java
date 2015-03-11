@@ -14,4 +14,5 @@ public class SqlTipos {
     public static int INTEGER = 1;
     public static int VARCHAR = 2;
     public static int DATE_TIME = 3;
+    public static int DECIMAL = 4;
 }
