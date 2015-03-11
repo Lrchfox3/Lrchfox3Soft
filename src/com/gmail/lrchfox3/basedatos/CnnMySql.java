@@ -161,5 +161,9 @@ public class CnnMySql {
         return conBD;
     }
 
+    public static Connection getCnn() {
+        return cnn;
+    }
+    
 }
 
