@@ -143,11 +143,11 @@ public class Campo {
     }
 
     public int getIntValue() {
-        return (getValue() != null ? ((Integer) getValue()).intValue() : -1);
+        return (getValue() != null ? ((Integer) getValue()).intValue() : -999999);
     }
 
     public double getDoubleValue() {        
-        return (getValue()!= null ? Double.parseDouble(getValue().toString())  : -1);
+        return (getValue()!= null ? Double.parseDouble(getValue().toString())  : -999999);
     }
         
     public String getStringValue() {
@@ -164,12 +164,12 @@ public class Campo {
 
     public void setValue(Object valor) {
         if (getTipo() == SqlTipos.INTEGER) {
-            value = (valor != null ? ((Integer) valor).intValue() : -1);
+            value = (valor != null ? ((Integer) valor).intValue() : -999999);
         } else if (getTipo() == SqlTipos.VARCHAR) {
             value = (valor != null ? valor.toString() : "");
         } 
         else if (getTipo() == SqlTipos.DECIMAL) {
-            value = (valor != null ? ((Double) valor).intValue() : -1);
+            value = (valor != null ? ((Double) valor).intValue() : -999999);
         }else if (getTipo() == SqlTipos.DATE_TIME) {
             java.sql.Date now = new java.sql.Date(System.currentTimeMillis());
             value = (valor != null ? valor : now);
