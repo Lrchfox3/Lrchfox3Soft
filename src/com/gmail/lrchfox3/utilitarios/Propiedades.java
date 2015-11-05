@@ -23,7 +23,7 @@ public class Propiedades implements Serializable {
 
     public static final ResourceBundle config = ResourceBundle.getBundle("com/gmail/lrchfox3/resources/config");
     public static ResourceBundle appBundle = ResourceBundle.getBundle("com/gmail/lrchfox3/resources/application"); // NOI18N
-    
+
     //Tipo Letras
     private final Font fontEtiquetas = new Font("Segoe UI", Font.PLAIN, 11);
     private final Font fontTextos = new Font("Segoe UI", Font.PLAIN, 11);
@@ -74,7 +74,7 @@ public class Propiedades implements Serializable {
     private final String imgCotizaciones = "/com/gmail/lrchfox3/imagenes/imgCotizaciones.png";
     private final String imgSeguimientos = "/com/gmail/lrchfox3/imagenes/imgSeguimientos.png";
     private final String imgVerTipos = "/com/gmail/lrchfox3/imagenes/imgVer_Tipos.gif";
-    private final String imgAplicar = "/com/gmail/lrchfox3/imagenes/imgAplicar.gif";    
+    private final String imgAplicar = "/com/gmail/lrchfox3/imagenes/imgAplicar.gif";
     private final String imgEditarCampo = "/com/gmail/lrchfox3/imagenes/imgEditarCampo.gif";
     private final String imgHora = "/com/gmail/lrchfox3/imagenes/imgHora.png";
     private final String imgTelefonos = "/com/gmail/lrchfox3/imagenes/imgTelefonos.png";
@@ -96,6 +96,7 @@ public class Propiedades implements Serializable {
     private final String imgImportar = "/com/gmail/lrchfox3/imagenes/botones/imgImportar.png";
     private final String imgExportar = "/com/gmail/lrchfox3/imagenes/botones/imgExportar.png";
     private final String imgCerrar = "/com/gmail/lrchfox3/imagenes/botones/imgCerrar.png";
+    private final String imgConectar = "/com/gmail/lrchfox3/imagenes/botones/imgConectar.png";
     //Iconos
     private final String imgInfo = "/com/gmail/lrchfox3/imagenes/icon/imgInfo.png";
     private final String imgError = "/com/gmail/lrchfox3/imagenes/icon/imgError.png";
@@ -156,6 +157,10 @@ public class Propiedades implements Serializable {
 // <editor-fold defaultstate="collapsed" desc=" Funciones imagenes ">
     public URL getImgAceptar() {
         return getClass().getResource(imgAceptar);
+    }
+
+    public URL getImgConectar() {
+        return getClass().getResource(imgConectar);
     }
 
     public URL getImgCancelar() {
@@ -376,24 +381,23 @@ public class Propiedades implements Serializable {
     public URL getImgError() {
         return getClass().getResource(this.imgError);
     }
-    
+
     public URL getImgWarning() {
         return getClass().getResource(this.imgWarning);
     }
-    
-    
+
     public URL getImgComentario() {
         return getClass().getResource(this.imgComentario);
     }
-    
+
     public URL getImgNota() {
         return getClass().getResource(this.imgNote);
     }
-    
+
     public URL getImgQuestion() {
         return getClass().getResource(this.imgQuestion);
     }
-    
+
     public URL getImgImportar() {
         return getClass().getResource(imgImportar);
     }

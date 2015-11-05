@@ -4,21 +4,21 @@
  */
 package com.gmail.lrchfox3.basedatos;
 
-
-
 /**
- * @author Luis R. Chinchilla H.
- * cnnSqlServer.java
- * Created on 02-12-2010, 08:46:43 PM
+ * @author Luis R. Chinchilla H. cnnSqlServer.java Created on 02-12-2010,
+ * 08:46:43 PM
  */
 // <editor-fold defaultstate="collapsed" desc=" Librerias ">
+import com.gmail.lrchfox3.utilitarios.Info;
 import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.sql.Connection;
 // </editor-fold>
+
 public class CnnSqlServer {
 
 // <editor-fold defaultstate="collapsed" desc=" Declaración de Variables ">
+    private String instancia = "SQLSERVER";
     private String nombreServidor = "";
     private String nombreBaseDatos = "";
     private String usuario = "";
@@ -49,10 +49,10 @@ public class CnnSqlServer {
 
     public Connection iniciarConexion() throws SQLServerException, Exception {
         /*this.nombreServidor = "localhost";//LCHINCHILLAPC2\\SQLEXPRESS";
-        this.nombreBaseDatos = "CONTROL_CLASES";
-        this.usuario = "sa";
-        this.contraseyna = "123456";
-        this.puerto = 1433;*/
+         this.nombreBaseDatos = "CONTROL_CLASES";
+         this.usuario = "sa";
+         this.contraseyna = "123456";
+         this.puerto = 1433;*/
 
         SQLServerDataSource ds = new SQLServerDataSource();
         ds.setServerName(this.getNombreServidor());
@@ -73,6 +73,15 @@ public class CnnSqlServer {
         this.setContraseyna(pass);
         this.setPuerto(puerto);
         return iniciarConexion();
+    }
+
+    public Connection iniciarConexion(String servidor, String bdd, String app, String user, String pass, long puerto) throws SQLServerException, Exception {
+
+        return iniciarConexion(servidor, bdd, app, user, pass, (int) puerto);
+    }
+
+    public Connection iniciarConexion(Info _info) throws SQLServerException, Exception {
+        return iniciarConexion(_info.getServidor(), _info.getBaseDatos(), _info.getAplicacion(), _info.getUsuario(), _info.getContrasenya(), _info.getPuerto());
     }
 
     public String getContraseyna() {
@@ -165,7 +174,6 @@ public class CnnSqlServer {
         return descripcion;
     }
 
-
     public static String getDescripcionAccion(int action) {
         String descripcion = "";
         switch (action) {
@@ -187,5 +195,13 @@ public class CnnSqlServer {
 
         }
         return descripcion;
+    }
+
+    public String getInstancia() {
+        return instancia;
+    }
+
+    public void setInstancia(String instancia) {
+        this.instancia = instancia;
     }
 }

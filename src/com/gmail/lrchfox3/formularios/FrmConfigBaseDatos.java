@@ -5,17 +5,42 @@
  */
 package com.gmail.lrchfox3.formularios;
 
+import com.gmail.lrchfox3.basedatos.CnnMySql;
+import com.gmail.lrchfox3.basedatos.CnnSqlServer;
+import com.gmail.lrchfox3.utilitarios.Info;
+import com.gmail.lrchfox3.utilitarios.Propiedades;
+import java.awt.Color;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author LuisR
  */
-public class FrmConfigBaseDatos extends javax.swing.JFrame {
+public class FrmConfigBaseDatos extends javax.swing.JDialog {
 
     /**
      * Creates new form FrmConfigBaseDatos
      */
-    public FrmConfigBaseDatos() {
+    public FrmConfigBaseDatos(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
+        info.setInstancia("SQLSERVER");
+    }
+
+    public FrmConfigBaseDatos(java.awt.Frame parent, boolean modal, Info _info) {
+        super(parent, modal);
+        initComponents();
+       
+        txtServidor.setText(_info.getServidor());
+        txtBaseDatos.setText(_info.getBaseDatos());
+        txtAplicacion.setText(_info.getAplicacion());
+        txtUsuario.setText(_info.getUsuario());
+        txtContrasenya.setText(_info.getContrasenya());
+        txtPuerto.setValue(_info.getPuerto());
+        txtPuerto.setComas(false);
+        info.setInstancia(_info.getInstancia());
     }
 
     /**
@@ -26,58 +51,254 @@ public class FrmConfigBaseDatos extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        info = new com.gmail.lrchfox3.utilitarios.Info();
+        txtServidor = new com.gmail.lrchfox3.controles.textos.JTextoBase();
+        lblServidor = new com.gmail.lrchfox3.controles.textos.JEtiquetaBase();
+        lblBaseDatos = new com.gmail.lrchfox3.controles.textos.JEtiquetaBase();
+        txtBaseDatos = new com.gmail.lrchfox3.controles.textos.JTextoBase();
+        lblAplicacion = new com.gmail.lrchfox3.controles.textos.JEtiquetaBase();
+        txtAplicacion = new com.gmail.lrchfox3.controles.textos.JTextoBase();
+        lblUsuario = new com.gmail.lrchfox3.controles.textos.JEtiquetaBase();
+        txtUsuario = new com.gmail.lrchfox3.controles.textos.JTextoBase();
+        lblContrasenya = new com.gmail.lrchfox3.controles.textos.JEtiquetaBase();
+        lblPuerto = new com.gmail.lrchfox3.controles.textos.JEtiquetaBase();
+        btnAceptar = new com.gmail.lrchfox3.controles.botones.JBotonAceptar();
+        btnProbar = new com.gmail.lrchfox3.controles.botones.JBotonBase();
+        txtContrasenya = new com.gmail.lrchfox3.controles.textos.JTextoContrasenya();
+        txtPuerto = new com.gmail.lrchfox3.controles.textos.JTextoFormato();
+        lblPrueba = new com.gmail.lrchfox3.controles.textos.JEtiquetaBase();
+        lblPrueba.setVisible(false);
+        jBotonCancelar1 = new com.gmail.lrchfox3.controles.botones.JBotonCancelar();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Configurar Base de Datos");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
+
+        txtServidor.setNextFocusableComponent(txtBaseDatos);
+
+        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, info, org.jdesktop.beansbinding.ELProperty.create("${nombreServidor}"), txtServidor, org.jdesktop.beansbinding.BeanProperty.create("text"));
+        bindingGroup.addBinding(binding);
+
+        lblServidor.setText("Nombre Servidor");
+
+        lblBaseDatos.setText("Nombre Base Datos");
+
+        txtBaseDatos.setNextFocusableComponent(txtAplicacion);
+
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, info, org.jdesktop.beansbinding.ELProperty.create("${nombreBaseDatos}"), txtBaseDatos, org.jdesktop.beansbinding.BeanProperty.create("text"));
+        bindingGroup.addBinding(binding);
+
+        lblAplicacion.setText("Nombre Aplicación (Opcional)");
+
+        txtAplicacion.setNextFocusableComponent(txtUsuario);
+
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, info, org.jdesktop.beansbinding.ELProperty.create("${nombreAplicacion}"), txtAplicacion, org.jdesktop.beansbinding.BeanProperty.create("text"));
+        bindingGroup.addBinding(binding);
+
+        lblUsuario.setText("Usuario");
+
+        txtUsuario.setNextFocusableComponent(txtContrasenya);
+
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, info, org.jdesktop.beansbinding.ELProperty.create("${usuario}"), txtUsuario, org.jdesktop.beansbinding.BeanProperty.create("text"));
+        bindingGroup.addBinding(binding);
+
+        lblContrasenya.setText("Contraseña");
+
+        lblPuerto.setText("Puerto");
+
+        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAceptarActionPerformed(evt);
+            }
+        });
+
+        btnProbar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gmail/lrchfox3/imagenes/botones/imgConectar.png"))); // NOI18N
+        btnProbar.setMnemonic('P');
+        btnProbar.setText("Probar");
+        btnProbar.setNextFocusableComponent(btnAceptar);
+        btnProbar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProbarActionPerformed(evt);
+            }
+        });
+
+        txtContrasenya.setNextFocusableComponent(txtPuerto);
+
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, info, org.jdesktop.beansbinding.ELProperty.create("${contrasenya}"), txtContrasenya, org.jdesktop.beansbinding.BeanProperty.create("text"));
+        bindingGroup.addBinding(binding);
+
+        txtPuerto.setComas(false);
+        txtPuerto.setNextFocusableComponent(btnProbar);
+
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, info, org.jdesktop.beansbinding.ELProperty.create("${puerto}"), txtPuerto, org.jdesktop.beansbinding.BeanProperty.create("value"));
+        bindingGroup.addBinding(binding);
+
+        lblPrueba.setText("Conexión Exitosa");
+
+        jBotonCancelar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBotonCancelar1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblPrueba, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(lblContrasenya, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(lblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(lblServidor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtServidor, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(lblBaseDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtBaseDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(lblAplicacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtAplicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblPuerto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnProbar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtContrasenya, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(txtPuerto, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(55, 55, 55)
+                                    .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jBotonCancelar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(0, 0, Short.MAX_VALUE))))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblServidor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtServidor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblBaseDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtBaseDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAplicacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAplicacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblContrasenya, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtContrasenya, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblPuerto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPuerto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnProbar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jBotonCancelar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblPrueba, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
+        bindingGroup.bind();
+
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmConfigBaseDatos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmConfigBaseDatos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmConfigBaseDatos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmConfigBaseDatos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        txtServidor.requestFocusInWindow();        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowOpened
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrmConfigBaseDatos().setVisible(true);
+    private void btnProbarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProbarActionPerformed
+
+        if (info.getInstancia().equals("SQLSERVER")) {
+            CnnSqlServer cnn = new CnnSqlServer();
+            try {
+               
+                           cnn.iniciarConexion(info);
+                lblPrueba.setVisible(true);
+                lblPrueba.setText("Conexión Exitosa");
+                lblPrueba.setForeground(Color.BLUE);
+            } catch (Exception ex) {
+                lblPrueba.setVisible(true);
+                lblPrueba.setText("Conexión Fallida: " + ex.getMessage());
+                lblPrueba.setForeground(Color.RED);
             }
-        });
-    }
+        } else if (info.getInstancia().equals("MYSQL")) {
+            CnnMySql cnn = new CnnMySql();
+            try {
+                cnn.iniciarConexion(info);
+                lblPrueba.setVisible(true);
+                lblPrueba.setText("Conexión Exitosa");
+                lblPrueba.setForeground(Color.GREEN);
+            } catch (SQLException | ClassNotFoundException | IllegalAccessException | InstantiationException ex) {
+                lblPrueba.setVisible(true);
+                lblPrueba.setText("Conexión Fallida: " + ex.getMessage());
+                lblPrueba.setForeground(Color.RED);
+            }
+        }
+
+
+    }//GEN-LAST:event_btnProbarActionPerformed
+
+    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_btnAceptarActionPerformed
+
+    private void jBotonCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonCancelar1ActionPerformed
+        System.exit(0);        // TODO add your handling code here:
+    }//GEN-LAST:event_jBotonCancelar1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.gmail.lrchfox3.controles.botones.JBotonAceptar btnAceptar;
+    private com.gmail.lrchfox3.controles.botones.JBotonBase btnProbar;
+    public static com.gmail.lrchfox3.utilitarios.Info info;
+    private com.gmail.lrchfox3.controles.botones.JBotonCancelar jBotonCancelar1;
+    private com.gmail.lrchfox3.controles.textos.JEtiquetaBase lblAplicacion;
+    private com.gmail.lrchfox3.controles.textos.JEtiquetaBase lblBaseDatos;
+    private com.gmail.lrchfox3.controles.textos.JEtiquetaBase lblContrasenya;
+    private com.gmail.lrchfox3.controles.textos.JEtiquetaBase lblPrueba;
+    private com.gmail.lrchfox3.controles.textos.JEtiquetaBase lblPuerto;
+    private com.gmail.lrchfox3.controles.textos.JEtiquetaBase lblServidor;
+    private com.gmail.lrchfox3.controles.textos.JEtiquetaBase lblUsuario;
+    private com.gmail.lrchfox3.controles.textos.JTextoBase txtAplicacion;
+    private com.gmail.lrchfox3.controles.textos.JTextoBase txtBaseDatos;
+    private com.gmail.lrchfox3.controles.textos.JTextoContrasenya txtContrasenya;
+    private com.gmail.lrchfox3.controles.textos.JTextoFormato txtPuerto;
+    private static com.gmail.lrchfox3.controles.textos.JTextoBase txtServidor;
+    private com.gmail.lrchfox3.controles.textos.JTextoBase txtUsuario;
+    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
+
 }
